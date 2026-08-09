@@ -1,0 +1,80 @@
+name: Publish immutable v1.0.0
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/publish-v1.0.0.yml
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: Publish v1.0.0
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out exact release commit
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+
+      - name: Verify repository and deterministic evidence
+        run: bash scripts/verify.sh
+
+      - name: Stage and hash-check immutable assets
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p dist
+          cp paper/manuscript.pdf dist/ottaviani-shapiro-sos-counterexample-v1.0.0.pdf
+          cp paper/manuscript.tex dist/ottaviani-shapiro-sos-counterexample-v1.0.0.tex
+          cp paper/references.bib dist/references.bib
+          cp CITATION.cff dist/CITATION.cff
+          cp release/EVIDENCE_BUNDLE.zip dist/ottaviani-shapiro-sos-counterexample-public-evidence-v1.0.0.zip
+          cp release/RELEASE_ASSET_SHA256SUMS.txt dist/SHA256SUMS.txt
+          (cd dist && sha256sum -c SHA256SUMS.txt)
+
+      - name: Write release notes
+        shell: bash
+        run: |
+          cat > /tmp/release-body.md <<EOF
+          # Version 1.0.0
+
+          ## Result
+
+          This release gives an explicit quartic sum of squares in ten variables with exactly 1152 isolated real zeros. It refutes the Ottaviani--Shapiro conjecture \`tilde#(2k,l)=k^l\` by proving \`tilde#(4,10) >= 1152 > 1024\`, and also supplies an audited even-degree lower-bound family.
+
+          ## Scope and status
+
+          The release does not determine the exact extremal function. Three independent priority lanes classify the result as apparently new after a documented search through 2026-08-09, with moderate confidence; generic, product-grid, and sum-of-squares ingredients are prior art. Absolute historical priority, human peer review, and formal verification are not claimed.
+
+          The mathematical audit, exact counterexample replay, deterministic public-evidence verification, clean PDF build, and page-by-page visual preflight are complete. The immutable tag targets public \`main\` commit \`${GITHUB_SHA}\`. The protected release PR passed all repository, replay, and PDF-build checks at this exact tree.
+
+          ## Immutable assets
+
+          - \`ottaviani-shapiro-sos-counterexample-v1.0.0.pdf\`
+          - \`ottaviani-shapiro-sos-counterexample-v1.0.0.tex\`
+          - \`references.bib\`
+          - \`CITATION.cff\`
+          - \`SHA256SUMS.txt\`
+          - \`ottaviani-shapiro-sos-counterexample-public-evidence-v1.0.0.zip\`
+
+          The checksum ledger records the exact hashes of the other five assets. The evidence ZIP is deterministic and contains its own verified manifest and SHA-256 ledger.
+
+          No DOI is claimed by this GitHub release. Any archival DOI deposit is a separate post-release action.
+          EOF
+
+      - name: Publish immutable GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if gh release view v1.0.0 >/dev/null 2>&1; then
+            echo "v1.0.0 already exists; refusing to overwrite an immutable release" >&2
+            exit 1
+          fi
+          gh release create v1.0.0 dist/* \
+            --target "$GITHUB_SHA" \
+            --title "Version 1.0.0" \
+            --notes-file /tmp/release-body.md
