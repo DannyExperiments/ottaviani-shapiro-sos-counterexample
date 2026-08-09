@@ -305,7 +305,11 @@ def verify_public_state_language() -> None:
                 fail(f"release/DOI pending boundary missing in {relative}: {marker}")
 
     citation = (ROOT / "CITATION.cff").read_text(encoding="utf-8")
-    if re.search(r"(?m)^doi\s*:", citation):
+    # CFF is YAML, so a DOI may appear below a nested mapping such as
+    # ``preferred-citation``.  Match the key at every indentation depth; the
+    # pre-deposit repository must not claim any DOI until the verified DOI
+    # metadata update deliberately changes this release-phase guard.
+    if re.search(r"(?mi)^[ \t]*doi[ \t]*:", citation):
         fail("CITATION.cff must not claim a DOI before a verified DOI deposit")
     for relative in current_surfaces:
         text = (ROOT / relative).read_text(encoding="utf-8")
