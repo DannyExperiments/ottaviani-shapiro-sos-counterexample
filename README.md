@@ -1,14 +1,16 @@
 # A counterexample to the Ottaviani--Shapiro isolated-zero conjecture
 
 <!--
-Activate these badges only after the clean repository exists publicly and both
-named workflows pass on its default branch:
+Activate these badges only after the repository is public and all three named
+workflows pass on its default branch:
 
 [![Verify public evidence](https://github.com/DannyExperiments/ottaviani-shapiro-sos-counterexample/actions/workflows/verify.yml/badge.svg)](https://github.com/DannyExperiments/ottaviani-shapiro-sos-counterexample/actions/workflows/verify.yml)
 [![Verifier replay](https://github.com/DannyExperiments/ottaviani-shapiro-sos-counterexample/actions/workflows/replay.yml/badge.svg)](https://github.com/DannyExperiments/ottaviani-shapiro-sos-counterexample/actions/workflows/replay.yml)
+[![PDF build](https://github.com/DannyExperiments/ottaviani-shapiro-sos-counterexample/actions/workflows/pdf.yml/badge.svg)](https://github.com/DannyExperiments/ottaviani-shapiro-sos-counterexample/actions/workflows/pdf.yml)
 
 No Lean badge is authorized: no scope-matched theorem is kernel checked.
-No PDF badge is authorized: no compiled or visually inspected PDF exists.
+The PDF has passed private page-by-page visual preflight, but its badge remains
+hidden until the workflow passes on the public default branch.
 -->
 
 This repository gives a negative answer to the universal equality conjectured
@@ -16,13 +18,9 @@ by Ottaviani and Shapiro for isolated real zeros of nonnegative sums of
 squares. It exhibits a quartic sum of squares in ten variables with exactly
 `1152` isolated real zeros, exceeding the conjectured value `2^10=1024`.
 
-> **Prepublication status.** This is a private local public-candidate skeleton.
-> The audited proof and designated private manuscript TeX are present, and
-> manuscript source QA passes. No PDF exists; compile and visual preflight,
-> public CI runs, human release approvals, immutable release, and DOI do not
-> yet exist. The
-> badge definitions are staged in a hidden comment for the intended repository
-> name and must remain hidden until future public default-branch runs succeed.
+The proof, designated manuscript source, frozen three-page PDF, public-safe
+audit reports, and deterministic replay bundle are included below. The result
+refutes Conjecture 4; it does **not** determine the exact maximum in Problem 3.
 
 ## Original problem
 
@@ -84,16 +82,21 @@ determine the exact extremal function, prove `tilde#(4,10)=1152`, or classify
 extremizers.
 
 [Problem and proof](proof/PROBLEM_AND_PROOF.md) ·
+[Paper (PDF)](paper/manuscript.pdf) ·
 [Designated manuscript TeX](paper/manuscript.tex) ·
+[Release notes](release/RELEASE_NOTES_v1.0.0.md) ·
 [Reproduce](REPRODUCIBILITY.md) ·
+[Citation metadata](CITATION.cff) ·
 [Mathematical audit](audits/public_safe_reports/MATHEMATICAL_AUDIT.md) ·
-[Priority audit](audits/public_safe_reports/LITERATURE_PRIORITY_AUDIT.md) ·
+[Live literature/priority audit](audits/public_safe_reports/LITERATURE_PRIORITY_AUDIT.md) ·
+[Architecture/terminology priority audit](audits/public_safe_reports/PRIORITY_AUDIT_ARCHITECTURE_2026-08-09.md) ·
 [Formalization status](formalization/README.md) ·
-[Claim/evidence matrix](CLAIMS_EVIDENCE_MATRIX.md)
+[Claim/evidence matrix](CLAIMS_EVIDENCE_MATRIX.md) ·
+[Deterministic evidence bundle](release/EVIDENCE_BUNDLE.zip)
 
-The final paper link, PDF-build badge, release link, and DOI badge are
-deliberately withheld until the manuscript and immutable public release pass
-their separate gates.
+The paper is directly readable above. Workflow badges remain hidden until all
+three workflows pass on the public default branch. A release link and DOI badge
+will be added only after the immutable release and DOI deposits exist.
 
 ## Verification status
 
@@ -103,16 +106,15 @@ their separate gates.
 | Exact replay scripts | Present; corroborating, not load-bearing |
 | General lower-bound family | Audited after boundary repairs |
 | Exact extremal maximum | Open |
-| Literature/priority | Comprehensive documented negative-search audit through 2026-08-09; apparently new with moderate confidence; no absolute-priority claim |
+| Literature/priority | `PRIORITY_AUDIT_PASS_QUALIFIED`: apparently new after documented search through 2026-08-09, moderate confidence; generic/product-grid/SOS ingredients are prior art; absolute priority unclaimed. Three independent lanes are frozen. |
 | Human specialist review | Not obtained |
 | Lean/Aristotle | No kernel-checked formalization yet; request packet only |
-| Manuscript source | Designated private candidate; source QA and hostile source-level audit `PASS` |
-| Manuscript PDF | Not compiled; visual preflight not run; exact Tectonic resource approval pending |
+| Manuscript source | Designated source; source QA and hostile source-level audit `PASS` |
+| Manuscript PDF | Frozen 3-page A4 artifact rebuilt by PR CI; SHA-256 `32dd500a3a58a944387cb2cd73dcd0aa446d40a993733bbe3e9ddef8e19cb110`; visual preflight `PASS` |
 
 ## Authorship and disclosure
 
-The planned citation name follows the owner's established repository
-convention, `DannyExperiments`; it remains subject to human approval before
-release. AI systems assisted discovery, proof development, mathematical and
-literature auditing, and repository assembly. No AI system is proposed as an
-author. See [AI_DISCLOSURE.md](AI_DISCLOSURE.md).
+The citation name follows the repository owner's established convention,
+`DannyExperiments`. AI systems assisted discovery, proof development,
+mathematical and literature auditing, and repository assembly. No AI system is
+proposed as an author. See [AI_DISCLOSURE.md](AI_DISCLOSURE.md).

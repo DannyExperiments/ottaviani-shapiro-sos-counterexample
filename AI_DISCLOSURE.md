@@ -8,4 +8,3 @@ The mathematical claims are presented with explicit proofs and reproducible
 corroborating checks. AI agreement is not treated as proof, peer review,
 formal verification, or evidence of priority. No AI system is proposed as an
 author.
-

@@ -5,15 +5,23 @@
 - [x] Certified counterexample and lower-bound scope separated from exact maximum
 - [x] Public-safe proof and verifier skeleton assembled
 - [x] Secret/private-path/raw-chat scan configured
-- [x] Comprehensive independent priority audit adjudicated; qualified
-      negative-search language frozen
+- [x] Three independent priority lanes frozen; qualified negative-search and
+      prior-ingredient language synchronized
 - [x] Final manuscript TeX source scope-compared and hostile-audited
-- [ ] Final manuscript PDF returned and scope-compared
-- [ ] Clean PDF build and visual preflight passed
-- [ ] Formalization status finalized accurately
-- [ ] Public allowlist, manifest, and checksums re-frozen
-- [ ] Human approved authorship, AI disclosure, license, visibility, DOI metadata, and notice
+- [x] Final manuscript PDF returned and scope-compared
+- [x] Exact PR-rebuilt PDF integrated; metadata, privacy, heading separation,
+      and page-by-page visual preflight passed
+- [x] Formalization status finalized accurately as not kernel checked
+- [x] Public allowlist, manifest, and checksums re-frozen locally
+- [x] Deterministic sanitized evidence bundle and five-asset release ledger
+      built and replay-checked locally
+- [x] Authorship (`DannyExperiments`), AI disclosure, and all-rights-reserved
+      no-license status finalized
+- [x] DOI metadata pattern approved for a versioned preprint deposit after the
+      immutable GitHub release exists
+- [ ] Human changes repository visibility to public
 - [ ] Public CI green and badges anonymous-reader checked
 - [ ] Default branch protected against force push and deletion
 - [ ] Immutable `v1.0.0` release created and assets re-hashed
 - [ ] DOI collision scan repeated and DOI deposit verified
+- [ ] External problem-site notice approved and posted

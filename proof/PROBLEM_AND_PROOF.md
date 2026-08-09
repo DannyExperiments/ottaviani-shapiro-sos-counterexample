@@ -159,4 +159,3 @@ This exceeds `k^l` exactly when `(l-1)(k-1)>4k`.
 
 This proof refutes the equality conjecture and proves lower bounds. It does
 not determine `tilde#(4,10)` or the exact function `tilde#(2k,l)`.
-

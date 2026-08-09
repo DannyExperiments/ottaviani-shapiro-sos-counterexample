@@ -23,4 +23,3 @@ Three exact repairs were incorporated into the canonical proof:
 
 The literal polynomial, exact 1152-point count, and refutation do not depend
 on computation. The included scripts are corroborating replays.
-

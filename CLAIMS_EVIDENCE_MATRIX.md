@@ -11,8 +11,8 @@
 | Even-family lower bound | Canonical interval/sign-polynomial construction | Audited after boundary repairs |
 | Exact maximum is `1152` | No evidence | **Not claimed; remains open** |
 | Result is historically first | Negative searches cannot prove this | **Not claimed** |
-| Apparently new through 2026-08-09 | Comprehensive documented negative-search audit | Moderate confidence; no absolute-priority claim |
-| `paper/manuscript.tex` is the designated private candidate | Source comparison, `paper/SOURCE_QA.md`, and hostile source-level audit | Source QA and hostile source audit `PASS`; PDF build remains a separate gate |
-| A compiled manuscript PDF has passed visual preflight | None; no PDF is present | **Not claimed; pending** |
+| Apparently new after documented search through 2026-08-09 | Three independent priority lanes, including the live audit and `audits/public_safe_reports/PRIORITY_AUDIT_ARCHITECTURE_2026-08-09.md` | `PRIORITY_AUDIT_PASS_QUALIFIED`; moderate confidence; generic/product-grid/SOS ingredients are prior art; absolute priority unclaimed |
+| `paper/manuscript.tex` is the designated source | Source comparison, `paper/SOURCE_QA.md`, and hostile source-level audit | Source QA and hostile source audit `PASS` |
+| The frozen manuscript PDF passed CI rebuild and visual preflight | `paper/manuscript.pdf`, exact hash, GitHub Actions run `31295131872`, and `paper/PDF_PREFLIGHT.md` | 3 A4 pages; PR rebuild and scope/privacy/metadata/visual checks `PASS`; public default-branch rebuild pending |
 | Lean verified | No kernel artifact exists | **Not claimed** |
 | Human peer reviewed | No specialist report exists | **Not claimed** |

@@ -11,4 +11,9 @@
   see `VERIFIER_REPLAY_LOG.txt`.
 - Private-data scan: no user name, username, email, home path, token, cookie,
   credential, wallet material, or private key detected.
-- PDF status is recorded separately in `BUILD_LOG.txt` and `BUILD_STATUS.md`.
+- Frozen PDF SHA-256:
+  `32dd500a3a58a944387cb2cd73dcd0aa446d40a993733bbe3e9ddef8e19cb110`.
+- PDF scope comparison, metadata, text privacy, embedded-font, and visual
+  preflight: `PASS`; see `PDF_PREFLIGHT.md`.
+- Designated local TeX and PR-build TeX are byte-identical; the PR build and
+  all three rendered pages pass.

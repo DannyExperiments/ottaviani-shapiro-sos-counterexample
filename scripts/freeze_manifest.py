@@ -8,18 +8,25 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-EXCLUDED_PARTS = {".git", "__pycache__"}
+EXCLUDED_PARTS = {".git"}
 EXCLUDED_NAMES = {"SHA256SUMS.txt", "MANIFEST.md"}
 
 
 def files() -> list[Path]:
-    return sorted(
-        path
-        for path in ROOT.rglob("*")
-        if path.is_file()
-        and not any(part in EXCLUDED_PARTS for part in path.relative_to(ROOT).parts)
-        and path.name not in EXCLUDED_NAMES
-    )
+    current: list[Path] = []
+    for path in ROOT.rglob("*"):
+        relative = path.relative_to(ROOT)
+        if any(part in EXCLUDED_PARTS for part in relative.parts):
+            continue
+        if path.is_symlink():
+            raise SystemExit(f"refusing to freeze symlink: {relative.as_posix()}")
+        if not path.is_file():
+            continue
+        if "__pycache__" in relative.parts or path.suffix in {".pyc", ".pyo"}:
+            raise SystemExit(f"refusing to freeze generated Python cache: {relative.as_posix()}")
+        if path.name not in EXCLUDED_NAMES:
+            current.append(path)
+    return sorted(current)
 
 
 def digest(path: Path) -> str:
@@ -36,9 +43,12 @@ def main() -> None:
         "# Public-candidate manifest",
         "",
         "Generated from the sanitized allowlist. Raw/private evidence is excluded.",
+        "The manifest lists every regular repository file. `SHA256SUMS.txt` hashes every",
+        "regular file except itself.",
         "",
     ]
-    manifest_lines.extend(f"- `{path.relative_to(ROOT).as_posix()}`" for path in current)
+    listed = sorted(current + [ROOT / "MANIFEST.md", ROOT / "SHA256SUMS.txt"])
+    manifest_lines.extend(f"- `{path.relative_to(ROOT).as_posix()}`" for path in listed)
     (ROOT / "MANIFEST.md").write_text("\n".join(manifest_lines) + "\n", encoding="utf-8")
 
     hashed = sorted(current + [ROOT / "MANIFEST.md"])
@@ -50,4 +60,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

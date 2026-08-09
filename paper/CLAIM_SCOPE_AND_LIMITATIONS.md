@@ -29,7 +29,8 @@
 
 ## Priority language
 
-A documented search through 2026-08-09 found no earlier published or publicly
-posted identical construction or theorem implying the stated family. This is
-a qualified negative-search conclusion, subject to indexing, access,
+Apparently new after documented search through 2026-08-09, moderate
+confidence; generic/product-grid/SOS ingredients are prior art; absolute
+priority unclaimed. Three independent priority lanes are frozen. This is a
+qualified negative-search conclusion, subject to indexing, access,
 terminology, language, and private-circulation limitations.

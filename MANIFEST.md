@@ -1,28 +1,36 @@
 # Public-candidate manifest
 
 Generated from the sanitized allowlist. Raw/private evidence is excluded.
+The manifest lists every regular repository file. `SHA256SUMS.txt` hashes every
+regular file except itself.
 
+- `.gitattributes`
 - `.github/workflows/pdf.yml`
 - `.github/workflows/replay.yml`
 - `.github/workflows/verify.yml`
+- `.gitignore`
 - `AI_DISCLOSURE.md`
 - `CITATION.cff`
 - `CLAIMS_EVIDENCE_MATRIX.md`
 - `CONTRIBUTING.md`
 - `LICENSE_STATUS.md`
+- `MANIFEST.md`
 - `PROBLEM_AND_PROOF.md`
 - `PROVENANCE.md`
 - `README.md`
 - `REPRODUCIBILITY.md`
 - `SECURITY.md`
+- `SHA256SUMS.txt`
 - `STATUS.md`
 - `audits/README.md`
 - `audits/public_safe_reports/LITERATURE_PRIORITY_AUDIT.md`
 - `audits/public_safe_reports/MATHEMATICAL_AUDIT.md`
+- `audits/public_safe_reports/PRIORITY_AUDIT_ARCHITECTURE_2026-08-09.md`
 - `checks/verify_even_family_counts.py`
 - `checks/verify_k2_l10.py`
 - `evidence/PRIVACY_AND_SECRET_SCAN.md`
 - `evidence/README.md`
+- `evidence/RELEASE_HARDENING_AUDIT_2026-08-09.md`
 - `formalization/FORMALIZATION_FEASIBILITY_AND_DEPENDENCIES.md`
 - `formalization/README.md`
 - `formalization/aristotle/DEPENDENCY_MAP.md`
@@ -34,15 +42,22 @@ Generated from the sanitized allowlist. Raw/private evidence is excluded.
 - `paper/BUILD_STATUS.md`
 - `paper/CLAIM_SCOPE_AND_LIMITATIONS.md`
 - `paper/HOSTILE_MANUSCRIPT_AUDIT_PROMPT.md`
+- `paper/PDF_PREFLIGHT.md`
 - `paper/README.md`
 - `paper/SOURCE_COMPARISON.md`
 - `paper/SOURCE_QA.md`
 - `paper/VERIFIER_REPLAY_LOG.txt`
+- `paper/manuscript.pdf`
 - `paper/manuscript.tex`
 - `paper/references.bib`
 - `proof/PROBLEM_AND_PROOF.md`
+- `release/EVIDENCE_BUNDLE.sha256`
+- `release/EVIDENCE_BUNDLE.zip`
+- `release/README.md`
+- `release/RELEASE_ASSET_SHA256SUMS.txt`
 - `release/RELEASE_CHECKLIST.md`
-- `release/RELEASE_NOTES_DRAFT.md`
+- `release/RELEASE_NOTES_v1.0.0.md`
+- `scripts/build_evidence_bundle.py`
 - `scripts/freeze_manifest.py`
 - `scripts/verify.sh`
 - `scripts/verify_repository.py`

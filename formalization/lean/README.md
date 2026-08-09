@@ -14,4 +14,3 @@ violated.
 Acceptance requirements: clean rebuild, no placeholders, no unexpected
 axioms, exact statement-equivalence report, and a CI workflow. Until those
 requirements pass, do not add a Lean badge.
-

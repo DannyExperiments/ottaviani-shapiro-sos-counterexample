@@ -1,0 +1,5 @@
+1c72c7e53ed50dea35bac161cb2b1da93e3f9e299dd434137ee9761217c996e8  CITATION.cff
+cf67078ef73f8733c6b97aebfca234f7358567488b6097730265dfb0bf503277  ottaviani-shapiro-sos-counterexample-public-evidence-v1.0.0.zip
+32dd500a3a58a944387cb2cd73dcd0aa446d40a993733bbe3e9ddef8e19cb110  ottaviani-shapiro-sos-counterexample-v1.0.0.pdf
+c588ae8dee762a50f32d2e87472194cab010f52753f4ded5a1cf8ff40e1b696a  ottaviani-shapiro-sos-counterexample-v1.0.0.tex
+0fbbd3e6153f95873f488123035ce019c1a265d31e9ffd6613f784f7c218f5ab  references.bib

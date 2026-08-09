@@ -1,9 +1,8 @@
 # License status
 
-No repository-wide reuse license is granted at the private-candidate stage.
-Copyright remains with the applicable author or source owner. Third-party
-publications are cited but not redistributed.
+No repository-wide reuse license is granted. All rights are reserved by the
+applicable author or source owner. Third-party publications are cited but are
+not redistributed.
 
-A release license, if any, must be selected and approved by the human owner
-before public visibility.
-
+Unless a file states otherwise, viewing or downloading material from this
+repository does not grant permission to reproduce, modify, or redistribute it.

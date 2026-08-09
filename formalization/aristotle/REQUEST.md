@@ -29,4 +29,3 @@ the specification above.
 If the cardinality proof is too large, return the strongest fully compiling
 dependency theorem and identify the exact first missing lemma. Do not report
 a dashboard state as a completed formalization.
-
