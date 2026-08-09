@@ -6,9 +6,11 @@ named workflows pass on its default branch:
 
 [![Verify public evidence](https://github.com/DannyExperiments/ottaviani-shapiro-sos-counterexample/actions/workflows/verify.yml/badge.svg)](https://github.com/DannyExperiments/ottaviani-shapiro-sos-counterexample/actions/workflows/verify.yml)
 [![Verifier replay](https://github.com/DannyExperiments/ottaviani-shapiro-sos-counterexample/actions/workflows/replay.yml/badge.svg)](https://github.com/DannyExperiments/ottaviani-shapiro-sos-counterexample/actions/workflows/replay.yml)
+[![PDF build](https://github.com/DannyExperiments/ottaviani-shapiro-sos-counterexample/actions/workflows/pdf.yml/badge.svg)](https://github.com/DannyExperiments/ottaviani-shapiro-sos-counterexample/actions/workflows/pdf.yml)
 
 No Lean badge is authorized: no scope-matched theorem is kernel checked.
-No PDF badge is authorized: no compiled or visually inspected PDF exists.
+The PDF badge remains hidden until the final public default-branch rerun and
+page-by-page visual preflight both pass.
 -->
 
 This repository gives a negative answer to the universal equality conjectured
@@ -16,11 +18,11 @@ by Ottaviani and Shapiro for isolated real zeros of nonnegative sums of
 squares. It exhibits a quartic sum of squares in ten variables with exactly
 `1152` isolated real zeros, exceeding the conjectured value `2^10=1024`.
 
-> **Prepublication status.** This is a private local public-candidate skeleton.
+> **Prepublication status.** This is a private public-candidate repository.
 > The audited proof and designated private manuscript TeX are present, and
-> manuscript source QA passes. No PDF exists; compile and visual preflight,
-> public CI runs, human release approvals, immutable release, and DOI do not
-> yet exist. The
+> manuscript source QA passes. No frozen release PDF exists; final compile and
+> visual preflight, public CI runs, human release approvals, immutable release,
+> and DOI do not yet exist. The
 > badge definitions are staged in a hidden comment for the intended repository
 > name and must remain hidden until future public default-branch runs succeed.
 
@@ -107,7 +109,7 @@ their separate gates.
 | Human specialist review | Not obtained |
 | Lean/Aristotle | No kernel-checked formalization yet; request packet only |
 | Manuscript source | Designated private candidate; source QA and hostile source-level audit `PASS` |
-| Manuscript PDF | Not compiled; visual preflight not run; exact Tectonic resource approval pending |
+| Manuscript PDF | Automated private CI reconstruction is available; no frozen, scope-compared, visually inspected release PDF yet |
 
 ## Authorship and disclosure
 

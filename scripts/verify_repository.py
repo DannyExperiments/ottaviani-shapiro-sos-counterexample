@@ -27,6 +27,11 @@ def sha256(path: Path) -> str:
 
 def verify_required_files() -> None:
     required = [
+        ".gitattributes",
+        ".gitignore",
+        ".github/workflows/pdf.yml",
+        ".github/workflows/replay.yml",
+        ".github/workflows/verify.yml",
         "README.md",
         "STATUS.md",
         "PROBLEM_AND_PROOF.md",
@@ -38,6 +43,8 @@ def verify_required_files() -> None:
         "LICENSE_STATUS.md",
         "SECURITY.md",
         "CONTRIBUTING.md",
+        "evidence/RELEASE_HARDENING_AUDIT_2026-08-09.md",
+        "evidence/PRIVACY_AND_SECRET_SCAN.md",
         "proof/PROBLEM_AND_PROOF.md",
         "checks/verify_k2_l10.py",
         "checks/verify_even_family_counts.py",
@@ -59,6 +66,26 @@ def verify_required_files() -> None:
     for relative in required:
         if not (ROOT / relative).is_file():
             fail(f"required file missing: {relative}")
+
+
+def verify_workflows() -> None:
+    pdf = (ROOT / ".github/workflows/pdf.yml").read_text(encoding="utf-8")
+    for marker in [
+        "pull_request:",
+        "actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+        "xu-cheng/latex-action@6549dc21effb2730855a1281407ecfcececc6c1b",
+        "actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02",
+        "if-no-files-found: error",
+        "retention-days: 7",
+    ]:
+        if marker not in pdf:
+            fail(f"PDF workflow hardening marker missing: {marker}")
+
+    readme = (ROOT / "README.md").read_text(encoding="utf-8")
+    if "actions/workflows/pdf.yml/badge.svg" not in readme:
+        fail("staged PDF badge definition missing")
+    if "<!--" not in readme.split("actions/workflows/pdf.yml/badge.svg", 1)[0]:
+        fail("PDF badge must remain hidden before the public rerun")
 
 
 def verify_scope() -> None:
@@ -146,6 +173,7 @@ def replay() -> None:
 
 def main() -> None:
     verify_required_files()
+    verify_workflows()
     verify_scope()
     verify_privacy()
     replay()

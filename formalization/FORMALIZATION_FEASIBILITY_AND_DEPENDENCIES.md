@@ -66,4 +66,3 @@ The real-radical and finite-free complex-locus claims are mathematically
 valuable but not required to refute the conjecture. The general family also
 adds substantial polynomial root-separation machinery. They should not delay
 the base formalization or be conflated with it.
-

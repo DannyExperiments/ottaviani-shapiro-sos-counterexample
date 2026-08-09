@@ -14,4 +14,3 @@ sum of squares equals zero
 
 The complex complete-intersection argument and general even-degree family are
 out of scope for this first request.
-

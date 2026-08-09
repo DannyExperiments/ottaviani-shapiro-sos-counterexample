@@ -11,4 +11,3 @@ screenshots, and unrestricted research logs are intentionally excluded.
 The decisive mathematical repairs are documented in the public mathematical
 audit. Exact private receipt and artifact hashes remain in the permanently
 private evidence record.
-

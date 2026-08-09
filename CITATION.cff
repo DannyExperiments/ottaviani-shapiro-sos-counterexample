@@ -3,6 +3,7 @@ message: "This is prepublication metadata. If a public release is issued, cite t
 title: "A counterexample to the Ottaviani--Shapiro isolated-zero conjecture"
 type: software
 version: 0.0.0-private-candidate
+repository-code: "https://github.com/DannyExperiments/ottaviani-shapiro-sos-counterexample"
 authors:
   - name: "DannyExperiments"
 preferred-citation:
@@ -17,4 +18,3 @@ keywords:
   - isolated real zeros
   - complete intersections
   - counterexample
-

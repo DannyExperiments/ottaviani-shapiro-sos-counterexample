@@ -8,4 +8,3 @@ conjecture `tilde#(2k,l)=k^l` by proving
 The release does not determine the exact extremal function, claim absolute
 historical priority, assert human peer review, or claim full formal
 verification.
-

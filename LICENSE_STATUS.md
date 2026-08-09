@@ -6,4 +6,3 @@ publications are cited but not redistributed.
 
 A release license, if any, must be selected and approved by the human owner
 before public visibility.
-

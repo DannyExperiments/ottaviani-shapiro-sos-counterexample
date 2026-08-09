@@ -2,9 +2,11 @@
 
 Generated from the sanitized allowlist. Raw/private evidence is excluded.
 
+- `.gitattributes`
 - `.github/workflows/pdf.yml`
 - `.github/workflows/replay.yml`
 - `.github/workflows/verify.yml`
+- `.gitignore`
 - `AI_DISCLOSURE.md`
 - `CITATION.cff`
 - `CLAIMS_EVIDENCE_MATRIX.md`
@@ -23,6 +25,7 @@ Generated from the sanitized allowlist. Raw/private evidence is excluded.
 - `checks/verify_k2_l10.py`
 - `evidence/PRIVACY_AND_SECRET_SCAN.md`
 - `evidence/README.md`
+- `evidence/RELEASE_HARDENING_AUDIT_2026-08-09.md`
 - `formalization/FORMALIZATION_FEASIBILITY_AND_DEPENDENCIES.md`
 - `formalization/README.md`
 - `formalization/aristotle/DEPENDENCY_MAP.md`

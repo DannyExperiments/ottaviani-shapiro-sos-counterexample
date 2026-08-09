@@ -3,10 +3,7 @@ name: PDF build
 on:
   workflow_dispatch:
   push:
-    paths:
-      - "paper/manuscript.tex"
-      - "paper/references.bib"
-      - ".github/workflows/pdf.yml"
+  pull_request:
 
 permissions:
   contents: read
@@ -29,7 +26,15 @@ jobs:
           args: -pdf -interaction=nonstopmode -halt-on-error -file-line-error
       - name: Reject unresolved references and layout warnings
         run: |
+          test -s paper/manuscript.pdf
           test -f paper/manuscript.log
           if grep -Eq 'There were undefined references|Citation .* undefined|Reference .* undefined|multiply defined|Overfull \\hbox|Overfull \\vbox|Underfull \\hbox|Underfull \\vbox|^!' paper/manuscript.log; then
             exit 1
           fi
+      - name: Upload manuscript PDF
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: manuscript-pdf
+          path: paper/manuscript.pdf
+          if-no-files-found: error
+          retention-days: 7

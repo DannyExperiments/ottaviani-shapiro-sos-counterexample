@@ -15,3 +15,8 @@ witness is scope-matched and rebuilt without placeholders.
 
 No formalization badge is authorized at this stage.
 
+The Aristotle request ZIP retains its original assembly timestamps. Those
+timestamps are nonsemantic: the archive bytes are covered by the repository
+checksum ledger, and no deterministic packet generator exists in this
+candidate. The archive was therefore not repacked merely to normalize ZIP
+metadata.
