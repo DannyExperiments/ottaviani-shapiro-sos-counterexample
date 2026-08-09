@@ -1,6 +1,6 @@
 98e336040abcb93bac2678f47ce209ca69fa8351a94db89b2901b5b97564d89b  .gitattributes
 52e56032c9e3b95e8197ab7066da7dcaac48ddab8313b221bc512a48b3923750  .github/workflows/pdf.yml
-c31d53dd024773fea3337a36e0fc2b592854d9567526aa4b60b10325c42f3656  .github/workflows/publish-v1.0.0.yml
+ee09098f6f271468b39da37874df1b3ea054b819ac4d7664170166f17d27a1bb  .github/workflows/publish-v1.0.0.yml
 2029e51bc94c135c2f57f6f783dbcf568faa92cf675ba6aaac9d6e14cab1d5f2  .github/workflows/replay.yml
 3f5e0d58c66f2baf4d504daaa1a35df581000db13b281c7f499d03e1aba19401  .github/workflows/verify.yml
 e94f96771048f2d2849c5d349cdeaa15ad1ebd88e628ae4c75baeeb40d0becdb  .gitignore
