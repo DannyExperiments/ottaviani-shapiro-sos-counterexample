@@ -6,8 +6,8 @@ Execution date: 2026-08-09.
 
 ```text
 FILE: paper/manuscript.pdf
-SHA256: 3622e8746ce08f94d4d42a6b0acb5628c10945c2afe2c8c7d03a35f42ba026a4
-SIZE_BYTES: 251276
+SHA256: 32dd500a3a58a944387cb2cd73dcd0aa446d40a993733bbe3e9ddef8e19cb110
+SIZE_BYTES: 251329
 PRODUCER: pdfTeX-1.40.29
 PAGES: 3
 PAGE_SIZE: A4 (595.276 x 841.89 points)
@@ -16,6 +16,12 @@ FORMS: NONE
 JAVASCRIPT: NO
 AUTHOR_METADATA: EMPTY
 ```
+
+The file is the exact `manuscript.pdf` member from successful GitHub Actions
+run `31295131872`, PR head
+`7c2eb4031131923f98fe4779f17a6d6578fea1ea`. The downloaded artifact ZIP had
+SHA-256 `03bf4d9e1c4b62027e54dad850c9ffbb28c28ded7aff440385bffa2462e90ddd`.
+The workflow source blob matches the designated local TeX source exactly.
 
 ## Scope comparison
 
@@ -52,6 +58,9 @@ All three pages were rendered and inspected at original detail. The title,
 abstract, theorem/proof flow, equations, headers, page numbers, references,
 and final scope paragraph are readable. No clipping, overlap, broken glyph,
 black box, malformed equation, or excessive display fragmentation was found.
+The section heading `A general even-degree family` is visually separated from
+the following introductory sentence and theorem; the earlier crowding is
+absent in this rebuilt artifact.
 
 ```text
 PDF_VISUAL_PREFLIGHT: PASS

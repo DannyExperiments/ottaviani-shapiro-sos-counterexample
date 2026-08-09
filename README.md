@@ -110,7 +110,7 @@ will be added only after the immutable release and DOI deposits exist.
 | Human specialist review | Not obtained |
 | Lean/Aristotle | No kernel-checked formalization yet; request packet only |
 | Manuscript source | Designated source; source QA and hostile source-level audit `PASS` |
-| Manuscript PDF | Frozen 3-page A4 artifact; SHA-256 `3622e8746ce08f94d4d42a6b0acb5628c10945c2afe2c8c7d03a35f42ba026a4`; visual preflight `PASS` |
+| Manuscript PDF | Frozen 3-page A4 artifact rebuilt by PR CI; SHA-256 `32dd500a3a58a944387cb2cd73dcd0aa446d40a993733bbe3e9ddef8e19cb110`; visual preflight `PASS` |
 
 ## Authorship and disclosure
 

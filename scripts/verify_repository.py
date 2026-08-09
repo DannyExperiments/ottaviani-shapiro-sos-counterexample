@@ -122,6 +122,9 @@ def verify_scope() -> None:
         "TEX_SOURCE_QA: PASS",
         "PDF_COMPILED: YES",
         "PDF_VISUAL_PREFLIGHT: PASS",
+        "PUBLIC_PR_REBUILD: PASS",
+        "PUBLIC_PR_REBUILD_HEAD: 7c2eb4031131923f98fe4779f17a6d6578fea1ea",
+        "PUBLIC_PR_REBUILD_RUN: 31295131872",
         "PUBLIC_DEFAULT_BRANCH_REBUILD: PENDING",
         "PDF_BADGE: HIDDEN",
     ]:
@@ -143,7 +146,7 @@ def verify_scope() -> None:
 def verify_frozen_artifacts() -> None:
     expected = {
         "paper/manuscript.pdf":
-            "3622e8746ce08f94d4d42a6b0acb5628c10945c2afe2c8c7d03a35f42ba026a4",
+            "32dd500a3a58a944387cb2cd73dcd0aa446d40a993733bbe3e9ddef8e19cb110",
         "audits/public_safe_reports/LITERATURE_PRIORITY_AUDIT.md":
             "4a9062c610a4e322e195c47a094ca6721ec84c1b55f7ad78410cc863a61a4030",
         "audits/public_safe_reports/PRIORITY_AUDIT_ARCHITECTURE_2026-08-09.md":

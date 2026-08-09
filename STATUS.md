@@ -35,10 +35,12 @@ maximum requested by Problem 3.
   packet are included.
 - **Manuscript:** `paper/manuscript.tex` is the designated source and
   `paper/manuscript.pdf` is the frozen three-page A4 artifact. Its SHA-256 is
-  `3622e8746ce08f94d4d42a6b0acb5628c10945c2afe2c8c7d03a35f42ba026a4`.
+  `32dd500a3a58a944387cb2cd73dcd0aa446d40a993733bbe3e9ddef8e19cb110`.
   Source QA, scope comparison, PDF metadata checks, text privacy extraction,
-  embedded-font checks, and page-by-page visual preflight pass. A public
-  default-branch workflow run remains pending, so badges stay hidden.
+  embedded-font checks, and page-by-page visual preflight pass. The exact PDF
+  was rebuilt successfully on the release-hardening PR at commit
+  `7c2eb4031131923f98fe4779f17a6d6578fea1ea`; a public default-branch run
+  remains pending, so badges stay hidden.
 - **Peer review:** no human specialist report has been obtained.
 - **Publication:** no journal acceptance, public release, or DOI is asserted.
 

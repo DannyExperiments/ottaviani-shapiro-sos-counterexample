@@ -33,7 +33,7 @@ enumeration.
 
 The designated manuscript source is `paper/manuscript.tex`. The frozen output
 is `paper/manuscript.pdf`, a three-page A4 PDF with SHA-256
-`3622e8746ce08f94d4d42a6b0acb5628c10945c2afe2c8c7d03a35f42ba026a4`.
+`32dd500a3a58a944387cb2cd73dcd0aa446d40a993733bbe3e9ddef8e19cb110`.
 Its source comparison, metadata checks, privacy text extraction, embedded-font
 check, and page-by-page visual preflight pass; see `paper/PDF_PREFLIGHT.md`.
 

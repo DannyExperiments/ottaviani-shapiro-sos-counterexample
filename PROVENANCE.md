@@ -15,7 +15,7 @@ private evidence record.
 The public-safe imported artifacts are byte-identified as follows:
 
 - `paper/manuscript.pdf`: SHA-256
-  `3622e8746ce08f94d4d42a6b0acb5628c10945c2afe2c8c7d03a35f42ba026a4`;
+  `32dd500a3a58a944387cb2cd73dcd0aa446d40a993733bbe3e9ddef8e19cb110`;
 - `audits/public_safe_reports/LITERATURE_PRIORITY_AUDIT.md`: SHA-256
   `4a9062c610a4e322e195c47a094ca6721ec84c1b55f7ad78410cc863a61a4030`.
 - `audits/public_safe_reports/PRIORITY_AUDIT_ARCHITECTURE_2026-08-09.md`:
@@ -26,3 +26,10 @@ The public-safe imported artifacts are byte-identified as follows:
   only trailing whitespace was mechanically normalized.
 
 No local source path, browser receipt, or private transcript is included.
+
+The frozen PDF is the exact `manuscript.pdf` member downloaded from successful
+GitHub Actions run `31295131872` at release-hardening PR head
+`7c2eb4031131923f98fe4779f17a6d6578fea1ea`. The downloaded artifact ZIP had
+SHA-256 `03bf4d9e1c4b62027e54dad850c9ffbb28c28ded7aff440385bffa2462e90ddd`.
+The workflow source blob and the designated local TeX source are identical
+(Git blob `19852603caec86af6d9ce863b765442400b1e830`).

@@ -5,13 +5,15 @@ public-safe assets and final `v1.0.0` release notes.
 
 The planned immutable release asset set is:
 
-- `paper/manuscript.pdf` — exact frozen three-page PDF;
-- `paper/manuscript.tex` — designated source;
-- `SHA256SUMS.txt` — complete repository ledger; and
-- `release/EVIDENCE_BUNDLE.zip` — deterministic sanitized evidence subset.
+- `ottaviani-shapiro-sos-counterexample-v1.0.0.pdf` — exact frozen three-page PDF;
+- `ottaviani-shapiro-sos-counterexample-v1.0.0.tex` — designated source;
+- `references.bib` — manuscript bibliography;
+- `CITATION.cff` — versioned citation metadata; and
+- `ottaviani-shapiro-sos-counterexample-public-evidence-v1.0.0.zip` —
+  deterministic sanitized evidence subset.
 
 `EVIDENCE_BUNDLE.sha256` records the archive hash.
-`RELEASE_ASSET_SHA256SUMS.txt` records the PDF, TeX, and evidence-bundle hashes.
+`RELEASE_ASSET_SHA256SUMS.txt` records all five release-asset hashes.
 The builder synthesizes an internal bundle manifest, checksum ledger, and
 replay README and is checked by the repository verification workflow.
 

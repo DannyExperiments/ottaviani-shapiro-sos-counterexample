@@ -13,7 +13,7 @@ Three independent priority lanes classify the result as apparently new after
 documented search through 2026-08-09, moderate confidence; generic/product-grid/
 SOS ingredients are prior art; absolute priority unclaimed.
 
-Release assets are the frozen PDF, designated TeX, complete repository checksum
-ledger, and deterministic sanitized evidence bundle. Their exact hashes are
-recorded in `release/RELEASE_ASSET_SHA256SUMS.txt`; the root checksum ledger is
-the complete repository inventory.
+Release assets are the frozen PDF, designated TeX, bibliography, citation
+metadata, and deterministic sanitized evidence bundle. Their exact hashes are
+recorded in `release/RELEASE_ASSET_SHA256SUMS.txt`; the root checksum ledger in
+the repository remains the complete repository inventory.

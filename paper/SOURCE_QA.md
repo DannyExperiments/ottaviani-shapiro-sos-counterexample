@@ -12,6 +12,8 @@
 - Private-data scan: no user name, username, email, home path, token, cookie,
   credential, wallet material, or private key detected.
 - Frozen PDF SHA-256:
-  `3622e8746ce08f94d4d42a6b0acb5628c10945c2afe2c8c7d03a35f42ba026a4`.
+  `32dd500a3a58a944387cb2cd73dcd0aa446d40a993733bbe3e9ddef8e19cb110`.
 - PDF scope comparison, metadata, text privacy, embedded-font, and visual
   preflight: `PASS`; see `PDF_PREFLIGHT.md`.
+- Designated local TeX and PR-build TeX are byte-identical; the PR build and
+  all three rendered pages pass.

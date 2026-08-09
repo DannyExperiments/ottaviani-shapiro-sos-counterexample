@@ -14,6 +14,7 @@ EVIDENCE_BUNDLE_INTERNAL_PATH_SCAN: PASS
 ARISTOTLE_REQUEST_ZIP_INTERNAL_PATH_SCAN: PASS
 FINAL_PDF_TEXT_EXTRACTION_SCAN: PASS
 FINAL_PDF_METADATA_AUTHOR_FIELD: EMPTY
+PUBLIC_PR_ARTIFACT_ZIP_PATH_AND_CRC_SCAN: PASS
 ```
 
 The allowlisted candidate was scanned for raw ChatGPT conversation/share
@@ -25,9 +26,9 @@ checked for absolute and parent-traversal paths and passed its CRC test. No
 matches were found.
 
 The exact final local staged tree, manuscript, deterministic evidence bundle,
-and release assets were scanned again after metadata finalization. The live
-remote and eventual public release assets must still be checked after merge
-and visibility change.
+five planned release assets, and downloaded successful PR artifact were
+scanned again after metadata finalization. The eventual public default-branch
+artifacts must still be checked after merge and visibility change.
 
 The frozen PDF was extracted with Poppler and scanned for user-home paths,
 raw chat URLs, email addresses, tokens, cookies, private-key markers, Codex

@@ -9,11 +9,12 @@
       prior-ingredient language synchronized
 - [x] Final manuscript TeX source scope-compared and hostile-audited
 - [x] Final manuscript PDF returned and scope-compared
-- [x] Frozen PDF metadata, privacy, and visual preflight passed
+- [x] Exact PR-rebuilt PDF integrated; metadata, privacy, heading separation,
+      and page-by-page visual preflight passed
 - [x] Formalization status finalized accurately as not kernel checked
 - [x] Public allowlist, manifest, and checksums re-frozen locally
-- [x] Deterministic sanitized evidence bundle and release-asset hashes built
-      and replay-checked locally
+- [x] Deterministic sanitized evidence bundle and five-asset release ledger
+      built and replay-checked locally
 - [x] Authorship (`DannyExperiments`), AI disclosure, and all-rights-reserved
       no-license status finalized
 - [x] DOI metadata pattern approved for a versioned preprint deposit after the

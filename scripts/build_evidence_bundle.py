@@ -135,9 +135,14 @@ def sidecar_text(bundle: bytes) -> str:
 
 def asset_ledger_text(bundle: bytes) -> str:
     assets = {
-        "paper/manuscript.pdf": (ROOT / "paper/manuscript.pdf").read_bytes(),
-        "paper/manuscript.tex": (ROOT / "paper/manuscript.tex").read_bytes(),
-        "release/EVIDENCE_BUNDLE.zip": bundle,
+        "ottaviani-shapiro-sos-counterexample-v1.0.0.pdf":
+            (ROOT / "paper/manuscript.pdf").read_bytes(),
+        "ottaviani-shapiro-sos-counterexample-v1.0.0.tex":
+            (ROOT / "paper/manuscript.tex").read_bytes(),
+        "references.bib": (ROOT / "paper/references.bib").read_bytes(),
+        "CITATION.cff": (ROOT / "CITATION.cff").read_bytes(),
+        "ottaviani-shapiro-sos-counterexample-public-evidence-v1.0.0.zip":
+            bundle,
     }
     return "".join(
         f"{sha256(assets[name])}  {name}\n" for name in sorted(assets)
