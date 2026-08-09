@@ -1,0 +1,49 @@
+# Public-candidate manifest
+
+Generated from the sanitized allowlist. Raw/private evidence is excluded.
+
+- `.github/workflows/pdf.yml`
+- `.github/workflows/replay.yml`
+- `.github/workflows/verify.yml`
+- `AI_DISCLOSURE.md`
+- `CITATION.cff`
+- `CLAIMS_EVIDENCE_MATRIX.md`
+- `CONTRIBUTING.md`
+- `LICENSE_STATUS.md`
+- `PROBLEM_AND_PROOF.md`
+- `PROVENANCE.md`
+- `README.md`
+- `REPRODUCIBILITY.md`
+- `SECURITY.md`
+- `STATUS.md`
+- `audits/README.md`
+- `audits/public_safe_reports/LITERATURE_PRIORITY_AUDIT.md`
+- `audits/public_safe_reports/MATHEMATICAL_AUDIT.md`
+- `checks/verify_even_family_counts.py`
+- `checks/verify_k2_l10.py`
+- `evidence/PRIVACY_AND_SECRET_SCAN.md`
+- `evidence/README.md`
+- `formalization/FORMALIZATION_FEASIBILITY_AND_DEPENDENCIES.md`
+- `formalization/README.md`
+- `formalization/aristotle/DEPENDENCY_MAP.md`
+- `formalization/aristotle/POLY-2200006_ARISTOTLE_REQUEST_PACKET_2026-08-09.zip`
+- `formalization/aristotle/REQUEST.md`
+- `formalization/lean/README.md`
+- `paper/BUILD.md`
+- `paper/BUILD_LOG.txt`
+- `paper/BUILD_STATUS.md`
+- `paper/CLAIM_SCOPE_AND_LIMITATIONS.md`
+- `paper/HOSTILE_MANUSCRIPT_AUDIT_PROMPT.md`
+- `paper/README.md`
+- `paper/SOURCE_COMPARISON.md`
+- `paper/SOURCE_QA.md`
+- `paper/VERIFIER_REPLAY_LOG.txt`
+- `paper/manuscript.tex`
+- `paper/references.bib`
+- `proof/PROBLEM_AND_PROOF.md`
+- `release/RELEASE_CHECKLIST.md`
+- `release/RELEASE_NOTES_DRAFT.md`
+- `scripts/freeze_manifest.py`
+- `scripts/verify.sh`
+- `scripts/verify_repository.py`
+- `verification/README.md`

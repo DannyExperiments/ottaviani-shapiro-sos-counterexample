@@ -1,0 +1,20 @@
+COUNTEREXAMPLE: k=2, l=10
+t=0: zero_indices=[0, 1]; positive_count=7; points=128
+t=1: zero_indices=[1, 2]; positive_count=7; points=128
+t=2: zero_indices=[2, 3]; positive_count=7; points=128
+t=3: zero_indices=[3, 4]; positive_count=7; points=128
+t=4: zero_indices=[4, 5]; positive_count=7; points=128
+t=5: zero_indices=[5, 6]; positive_count=7; points=128
+t=6: zero_indices=[6, 7]; positive_count=7; points=128
+t=7: zero_indices=[7, 8]; positive_count=7; points=128
+t=8: zero_indices=[0, 8]; positive_count=7; points=128
+TOTAL_REAL_ZEROS=1152
+CONJECTURAL_VALUE=1024
+EXCESS=128
+CERTIFIED_COUNTEREXAMPLE=YES
+k=2; l=3; family_count=2; k^l=8; strict_violation=NO
+k=2; l=10; family_count=1152; k^l=1024; strict_violation=YES
+k=4; l=7; family_count=18432; k^l=16384; strict_violation=YES
+k=6; l=6; family_count=48600; k^l=46656; strict_violation=YES
+k=8; l=6; family_count=286720; k^l=262144; strict_violation=YES
+AUDITED_FAMILY_COUNT_REPLAY=PASS

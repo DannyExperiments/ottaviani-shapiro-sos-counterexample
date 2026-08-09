@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "This is prepublication metadata. If a public release is issued, cite that immutable version."
+title: "A counterexample to the Ottaviani--Shapiro isolated-zero conjecture"
+type: software
+version: 0.0.0-private-candidate
+authors:
+  - name: "DannyExperiments"
+preferred-citation:
+  type: article
+  title: "A counterexample to the Ottaviani--Shapiro isolated-zero conjecture"
+  authors:
+    - name: "DannyExperiments"
+  year: 2026
+keywords:
+  - real algebraic geometry
+  - sums of squares
+  - isolated real zeros
+  - complete intersections
+  - counterexample
+

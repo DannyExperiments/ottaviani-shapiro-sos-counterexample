@@ -1,0 +1,22 @@
+name: Verifier replay
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  replay:
+    name: Replay exact counterexample checks
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Replay base witness
+        run: python3 checks/verify_k2_l10.py
+      - name: Replay audited family counts
+        run: python3 checks/verify_even_family_counts.py
