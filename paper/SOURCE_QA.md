@@ -11,4 +11,7 @@
   see `VERIFIER_REPLAY_LOG.txt`.
 - Private-data scan: no user name, username, email, home path, token, cookie,
   credential, wallet material, or private key detected.
-- PDF status is recorded separately in `BUILD_LOG.txt` and `BUILD_STATUS.md`.
+- Frozen PDF SHA-256:
+  `3622e8746ce08f94d4d42a6b0acb5628c10945c2afe2c8c7d03a35f42ba026a4`.
+- PDF scope comparison, metadata, text privacy, embedded-font, and visual
+  preflight: `PASS`; see `PDF_PREFLIGHT.md`.

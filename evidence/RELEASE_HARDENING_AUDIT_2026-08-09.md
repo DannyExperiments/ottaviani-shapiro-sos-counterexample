@@ -18,6 +18,16 @@ GIT_DIFF_CHECK: PASS
 INDEPENDENT_PRIVACY_SCAN: PASS
 ZIP_PATH_AND_CRC_SCAN: PASS
 SYMLINK_SCAN: PASS
+FINAL_PDF_INTEGRATED: PASS
+FINAL_PDF_SHA256: 3622e8746ce08f94d4d42a6b0acb5628c10945c2afe2c8c7d03a35f42ba026a4
+FINAL_PDF_VISUAL_PREFLIGHT: PASS
+FRESH_PRIORITY_REPORT_INTEGRATED: PASS
+FRESH_PRIORITY_REPORT_SHA256: 4a9062c610a4e322e195c47a094ca6721ec84c1b55f7ad78410cc863a61a4030
+ARCHITECTURE_PRIORITY_REPORT_INTEGRATED: PASS
+ARCHITECTURE_PRIORITY_REPORT_SOURCE_SHA256: e778afd87ef2f74ff6689eebab34e9c9b3b98ed4039001d5c2e37ed81f2f88da
+ARCHITECTURE_PRIORITY_REPORT_REPOSITORY_SHA256: fbfe8c2ad56cfaced4f1442b854a62e53dcd5efa9f29d73989ba1f53fdb3d163
+PRIORITY_LANES_FROZEN: 3
+PRIORITY_AUDIT_PASS_QUALIFIED: PASS
 ```
 
 The Aristotle request archive was not repacked. Its SHA-256 digest is
@@ -27,5 +37,9 @@ nonsemantic assembly metadata.
 
 The PDF, workflow, citation, ignore/attribute, manifest, and repository-check
 changes in this hardening pass do not alter the theorem statement, witness,
-proof, family bound, or priority classification. Badges remain hidden until
-the final public default-branch workflows and PDF visual preflight pass.
+proof, family bound, or priority classification. The frozen PDF has now passed
+visual preflight, but badges remain hidden until the public default-branch
+workflows pass. The priority wording remains qualified and a strict third
+independent architecture-and-terminology lane is now frozen. Generic,
+product-grid, and SOS ingredients are acknowledged as prior art; no absolute
+historical-priority claim is made.

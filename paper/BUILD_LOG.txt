@@ -2,10 +2,18 @@ note: using only cached resource files
 note: generating format "latex"
 error: failed to open input file "tectonic-format-latex.tex"
 
-Private GitHub Actions run 31289720582 compiled the immediately preceding
-source successfully on commit 15231bb6412710af4f089767abe36bbf3c0de776.
-Visual inspection then identified two jargon-only phrases for clarification:
-"independent private variables" and "private-variable quadratics".  They were
-replaced by "distinct variables" and "each in its own variable" without
-changing any formula, theorem, or proof step.  The exact current source awaits
-a fresh hosted build.
+The cached-only failure occurred before TeX parsing and is retained as
+environment provenance.
+
+FINAL_ARTIFACT_INTEGRATED: YES
+FINAL_PDF_SHA256: 3622e8746ce08f94d4d42a6b0acb5628c10945c2afe2c8c7d03a35f42ba026a4
+FINAL_TEX_SHA256: 9a381ae1ca3fa7f89e9b259f4b61dec4ff42c764858b827a132ae939de6501bf
+PDF_PRODUCER: pdfTeX-1.40.29
+PDF_PAGES: 3
+PDF_PAGE_SIZE: A4
+PDF_SCOPE_COMPARISON: PASS
+PDF_TEXT_PRIVACY_SCAN: PASS
+PDF_EMBEDDED_FONT_SCAN: PASS
+PDF_VISUAL_PREFLIGHT: PASS
+PUBLIC_DEFAULT_BRANCH_REBUILD: PENDING
+BADGE_AUTHORIZED: NO

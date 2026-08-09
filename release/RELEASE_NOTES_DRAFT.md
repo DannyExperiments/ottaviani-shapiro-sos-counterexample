@@ -8,3 +8,7 @@ conjecture `tilde#(2k,l)=k^l` by proving
 The release does not determine the exact extremal function, claim absolute
 historical priority, assert human peer review, or claim full formal
 verification.
+
+Three independent priority lanes classify the result as apparently new after
+documented search through 2026-08-09, moderate confidence; generic/product-grid/
+SOS ingredients are prior art; absolute priority unclaimed.

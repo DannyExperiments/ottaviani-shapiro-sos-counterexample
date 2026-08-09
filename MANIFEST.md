@@ -25,6 +25,7 @@ regular file except itself.
 - `audits/README.md`
 - `audits/public_safe_reports/LITERATURE_PRIORITY_AUDIT.md`
 - `audits/public_safe_reports/MATHEMATICAL_AUDIT.md`
+- `audits/public_safe_reports/PRIORITY_AUDIT_ARCHITECTURE_2026-08-09.md`
 - `checks/verify_even_family_counts.py`
 - `checks/verify_k2_l10.py`
 - `evidence/PRIVACY_AND_SECRET_SCAN.md`
@@ -41,10 +42,12 @@ regular file except itself.
 - `paper/BUILD_STATUS.md`
 - `paper/CLAIM_SCOPE_AND_LIMITATIONS.md`
 - `paper/HOSTILE_MANUSCRIPT_AUDIT_PROMPT.md`
+- `paper/PDF_PREFLIGHT.md`
 - `paper/README.md`
 - `paper/SOURCE_COMPARISON.md`
 - `paper/SOURCE_QA.md`
 - `paper/VERIFIER_REPLAY_LOG.txt`
+- `paper/manuscript.pdf`
 - `paper/manuscript.tex`
 - `paper/references.bib`
 - `proof/PROBLEM_AND_PROOF.md`

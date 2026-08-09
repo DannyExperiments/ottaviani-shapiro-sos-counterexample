@@ -45,16 +45,19 @@ def verify_required_files() -> None:
         "CONTRIBUTING.md",
         "evidence/RELEASE_HARDENING_AUDIT_2026-08-09.md",
         "evidence/PRIVACY_AND_SECRET_SCAN.md",
+        "audits/public_safe_reports/PRIORITY_AUDIT_ARCHITECTURE_2026-08-09.md",
         "proof/PROBLEM_AND_PROOF.md",
         "checks/verify_k2_l10.py",
         "checks/verify_even_family_counts.py",
         "formalization/FORMALIZATION_FEASIBILITY_AND_DEPENDENCIES.md",
         "release/RELEASE_CHECKLIST.md",
         "paper/manuscript.tex",
+        "paper/manuscript.pdf",
         "paper/references.bib",
         "paper/BUILD.md",
         "paper/BUILD_LOG.txt",
         "paper/BUILD_STATUS.md",
+        "paper/PDF_PREFLIGHT.md",
         "paper/CLAIM_SCOPE_AND_LIMITATIONS.md",
         "paper/SOURCE_COMPARISON.md",
         "paper/SOURCE_QA.md",
@@ -98,7 +101,11 @@ def verify_scope() -> None:
         "exact extremal function",
         "exact maximum remains open",
         "((l-1)(k-1)/4)",
-        "MANUSCRIPT_HOSTILE_SOURCE_AUDIT_PASS",
+        "MANUSCRIPT_PASS",
+        "PRIORITY_AUDIT_PASS_QUALIFIED",
+        "apparently new after documented search through 2026-08-09, moderate confidence",
+        "generic/product-grid/SOS ingredients are prior art",
+        "absolute priority unclaimed",
     ]:
         if marker.lower() not in joined.lower():
             fail(f"scope marker missing: {marker}")
@@ -106,11 +113,42 @@ def verify_scope() -> None:
     build_status = (ROOT / "paper/BUILD_STATUS.md").read_text(encoding="utf-8")
     for marker in [
         "TEX_SOURCE_QA: PASS",
-        "PDF_COMPILED: NO",
-        "PDF_VISUAL_PREFLIGHT: NOT_RUN",
+        "PDF_COMPILED: YES",
+        "PDF_VISUAL_PREFLIGHT: PASS",
+        "PUBLIC_DEFAULT_BRANCH_REBUILD: PENDING",
+        "PDF_BADGE: HIDDEN",
     ]:
         if marker not in build_status:
             fail(f"manuscript build boundary missing: {marker}")
+
+    preflight = (ROOT / "paper/PDF_PREFLIGHT.md").read_text(encoding="utf-8")
+    for marker in [
+        "PDF_SCOPE_COMPARISON: PASS",
+        "EXACT_MAXIMUM_BOUNDARY: PASS",
+        "PDF_TEXT_PRIVACY_SCAN: PASS",
+        "PDF_EMBEDDED_FONT_SCAN: PASS",
+        "PDF_VISUAL_PREFLIGHT: PASS",
+    ]:
+        if marker not in preflight:
+            fail(f"PDF preflight marker missing: {marker}")
+
+
+def verify_frozen_artifacts() -> None:
+    expected = {
+        "paper/manuscript.pdf":
+            "3622e8746ce08f94d4d42a6b0acb5628c10945c2afe2c8c7d03a35f42ba026a4",
+        "audits/public_safe_reports/LITERATURE_PRIORITY_AUDIT.md":
+            "4a9062c610a4e322e195c47a094ca6721ec84c1b55f7ad78410cc863a61a4030",
+        "audits/public_safe_reports/PRIORITY_AUDIT_ARCHITECTURE_2026-08-09.md":
+            "fbfe8c2ad56cfaced4f1442b854a62e53dcd5efa9f29d73989ba1f53fdb3d163",
+    }
+    for relative, digest in expected.items():
+        if sha256(ROOT / relative) != digest:
+            fail(f"frozen artifact hash mismatch: {relative}")
+
+    pdf = (ROOT / "paper/manuscript.pdf").read_bytes()
+    if not pdf.startswith(b"%PDF-"):
+        fail("frozen manuscript is not a PDF")
 
 
 def verify_privacy() -> None:
@@ -199,6 +237,7 @@ def main() -> None:
     verify_required_files()
     verify_workflows()
     verify_scope()
+    verify_frozen_artifacts()
     verify_privacy()
     replay()
     verify_ledger()

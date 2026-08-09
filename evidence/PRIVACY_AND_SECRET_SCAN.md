@@ -8,6 +8,8 @@ ARCHIVE_PATH_SCAN: PASS
 SYMLINK_SCAN: PASS (no symlinks)
 REPOSITORY_VERIFIER_PRIVATE_DATA_SCAN: PASS
 POST_HARDENING_INDEPENDENT_SCAN: PASS
+FINAL_PDF_TEXT_EXTRACTION_SCAN: PASS
+FINAL_PDF_METADATA_AUTHOR_FIELD: EMPTY
 ```
 
 The allowlisted candidate was scanned for raw ChatGPT conversation/share
@@ -21,3 +23,8 @@ matches were found.
 This scan does not authorize publication by itself. It must be repeated on
 the exact final manuscript, evidence bundle, Git history, release assets, and
 live remote immediately before human release approval.
+
+The frozen PDF was extracted with Poppler and scanned for user-home paths,
+raw chat URLs, email addresses, tokens, cookies, private-key markers, Codex
+paths, and sandbox/private temporary paths. No match was found. The PDF is
+unencrypted, contains no JavaScript or form, and has an empty Author field.

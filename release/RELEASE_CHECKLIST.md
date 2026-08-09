@@ -5,13 +5,13 @@
 - [x] Certified counterexample and lower-bound scope separated from exact maximum
 - [x] Public-safe proof and verifier skeleton assembled
 - [x] Secret/private-path/raw-chat scan configured
-- [x] Comprehensive independent priority audit adjudicated; qualified
-      negative-search language frozen
+- [x] Three independent priority lanes frozen; qualified negative-search and
+      prior-ingredient language synchronized
 - [x] Final manuscript TeX source scope-compared and hostile-audited
-- [ ] Final manuscript PDF returned and scope-compared
-- [ ] Clean PDF build and visual preflight passed
-- [ ] Formalization status finalized accurately
-- [ ] Public allowlist, manifest, and checksums re-frozen
+- [x] Final manuscript PDF returned and scope-compared
+- [x] Frozen PDF metadata, privacy, and visual preflight passed
+- [x] Formalization status finalized accurately as not kernel checked
+- [x] Public allowlist, manifest, and checksums re-frozen locally
 - [ ] Human approved authorship, AI disclosure, license, visibility, DOI metadata, and notice
 - [ ] Public CI green and badges anonymous-reader checked
 - [ ] Default branch protected against force push and deletion
