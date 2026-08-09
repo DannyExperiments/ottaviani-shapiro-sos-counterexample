@@ -20,9 +20,9 @@ corroborating evidence only. The proof does not depend on bounded
 enumeration.
 
 The designated private manuscript source is `paper/manuscript.tex`, and its
-source-level QA passes. No PDF is present. The cached-only Tectonic attempt is
-recorded in `paper/BUILD_LOG.txt`; it stopped before TeX parsing because the
-resource cache is incomplete. `paper/BUILD.md` and `.github/workflows/pdf.yml`
-define the future clean-build gate after exact resource-fetch approval. Do not
-display a PDF-build badge before a clean default-branch build and visual
-preflight succeed.
+source-level QA passes. No final PDF is integrated. The cached-only Tectonic
+attempt is recorded in `paper/BUILD_LOG.txt`; it stopped before TeX parsing
+because the resource cache is incomplete. `paper/BUILD.md` and the pinned,
+read-only `.github/workflows/pdf.yml` define the clean-build gate. Do not
+display a PDF-build badge before the exact release commit rebuilds and its PDF
+passes visual preflight, followed by a passing public default-branch run.

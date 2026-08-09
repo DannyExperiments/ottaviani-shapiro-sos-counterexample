@@ -143,6 +143,21 @@ def verify_privacy() -> None:
 
 def verify_ledger() -> None:
     ledger = ROOT / "SHA256SUMS.txt"
+    expected_files: set[str] = set()
+    for path in ROOT.rglob("*"):
+        relative = path.relative_to(ROOT)
+        if ".git" in relative.parts:
+            continue
+        if path.is_symlink():
+            fail(f"symlink is forbidden: {relative.as_posix()}")
+        if not path.is_file():
+            continue
+        if "__pycache__" in relative.parts or path.suffix in {".pyc", ".pyo"}:
+            fail(f"generated Python cache is forbidden: {relative.as_posix()}")
+        if path != ledger:
+            expected_files.add(relative.as_posix())
+
+    entries: dict[str, str] = {}
     for number, line in enumerate(ledger.read_text(encoding="utf-8").splitlines(), 1):
         if not line.strip():
             continue
@@ -150,11 +165,20 @@ def verify_ledger() -> None:
             expected, relative = line.split("  ", 1)
         except ValueError:
             fail(f"malformed checksum line {number}")
+        if not re.fullmatch(r"[0-9a-f]{64}", expected):
+            fail(f"malformed checksum hash on line {number}")
+        if relative in entries:
+            fail(f"duplicate checksum entry: {relative}")
+        entries[relative] = expected
         path = ROOT / relative
         if not path.is_file():
             fail(f"checksum target missing: {relative}")
         if sha256(path) != expected:
             fail(f"checksum mismatch: {relative}")
+    if set(entries) != expected_files:
+        missing = sorted(expected_files - set(entries))
+        extra = sorted(set(entries) - expected_files)
+        fail(f"checksum inventory mismatch; missing={missing}, extra={extra}")
 
 
 def replay() -> None:

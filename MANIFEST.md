@@ -1,6 +1,8 @@
 # Public-candidate manifest
 
 Generated from the sanitized allowlist. Raw/private evidence is excluded.
+The manifest lists every regular repository file. `SHA256SUMS.txt` hashes every
+regular file except itself.
 
 - `.gitattributes`
 - `.github/workflows/pdf.yml`
@@ -12,11 +14,13 @@ Generated from the sanitized allowlist. Raw/private evidence is excluded.
 - `CLAIMS_EVIDENCE_MATRIX.md`
 - `CONTRIBUTING.md`
 - `LICENSE_STATUS.md`
+- `MANIFEST.md`
 - `PROBLEM_AND_PROOF.md`
 - `PROVENANCE.md`
 - `README.md`
 - `REPRODUCIBILITY.md`
 - `SECURITY.md`
+- `SHA256SUMS.txt`
 - `STATUS.md`
 - `audits/README.md`
 - `audits/public_safe_reports/LITERATURE_PRIORITY_AUDIT.md`

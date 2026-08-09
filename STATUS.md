@@ -29,10 +29,11 @@ private candidate stage.
 - **Formalization:** not yet kernel checked. A feasibility report and request
   packet are included.
 - **Manuscript:** `paper/manuscript.tex` is the designated private candidate;
-  source QA and hostile source-level audit pass with high confidence. No PDF
-  exists. Compilation and page-by-page visual
-  preflight are pending exact approval for the missing Tectonic resource
-  bundle.
+  source QA and hostile source-level audit pass with high confidence. A pinned
+  private GitHub Actions build route has compiled the pre-editorial source;
+  the exact current source must rerun after two clarity-only wording repairs.
+  No final PDF is integrated, and page-by-page visual preflight remains
+  pending.
 - **Peer review:** no human specialist report has been obtained.
 - **Publication:** no journal acceptance, public release, or DOI is asserted.
 

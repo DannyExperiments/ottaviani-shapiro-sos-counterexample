@@ -7,10 +7,12 @@ refutation and the strongest audited lower-bound family, while explicitly
 leaving the exact extremal maximum open.
 
 Source-level formatting, theorem-scope, privacy, and exact verifier QA pass.
-This is not a compiled or visually inspected release manuscript: no PDF
-exists. The cached-only Tectonic attempt stopped before TeX parsing because
-the local resource bundle is missing. A live resource fetch and compile
-require exact action-time approval.
+This is not yet a frozen or visually inspected release manuscript: no final
+PDF is integrated. The cached-only local Tectonic attempt stopped before TeX
+parsing because the local resource bundle is missing.  The pinned, read-only
+private GitHub Actions route compiled the immediately preceding source; the
+exact current source requires a fresh hosted rerun after two clarity-only
+wording repairs.
 
 Read `CLAIM_SCOPE_AND_LIMITATIONS.md`, `SOURCE_COMPARISON.md`, `SOURCE_QA.md`,
 `VERIFIER_REPLAY_LOG.txt`, and `BUILD_STATUS.md` before treating the source as
