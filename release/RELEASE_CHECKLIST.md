@@ -12,8 +12,15 @@
 - [x] Frozen PDF metadata, privacy, and visual preflight passed
 - [x] Formalization status finalized accurately as not kernel checked
 - [x] Public allowlist, manifest, and checksums re-frozen locally
-- [ ] Human approved authorship, AI disclosure, license, visibility, DOI metadata, and notice
+- [x] Deterministic sanitized evidence bundle and release-asset hashes built
+      and replay-checked locally
+- [x] Authorship (`DannyExperiments`), AI disclosure, and all-rights-reserved
+      no-license status finalized
+- [x] DOI metadata pattern approved for a versioned preprint deposit after the
+      immutable GitHub release exists
+- [ ] Human changes repository visibility to public
 - [ ] Public CI green and badges anonymous-reader checked
 - [ ] Default branch protected against force push and deletion
 - [ ] Immutable `v1.0.0` release created and assets re-hashed
 - [ ] DOI collision scan repeated and DOI deposit verified
+- [ ] External problem-site notice approved and posted

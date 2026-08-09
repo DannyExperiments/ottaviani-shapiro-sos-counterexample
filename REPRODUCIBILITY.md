@@ -5,8 +5,20 @@ Requirements: Python 3.10 or later; no third-party Python packages.
 Run the complete public-safe verification:
 
 ```bash
-python3 scripts/verify_repository.py
+bash scripts/verify.sh
 ```
+
+This also checks that `release/EVIDENCE_BUNDLE.zip`, its sidecar, and the
+release-asset ledger are byte-for-byte reproducible. To check that layer
+directly, run:
+
+```bash
+python3 -B scripts/build_evidence_bundle.py --check
+```
+
+The archive contains an internal manifest, SHA-256 ledger, and replay README.
+It is a public-safe subset; raw audit transcripts and private receipts remain
+outside the repository.
 
 Run the mathematical corroboration directly:
 

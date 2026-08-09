@@ -51,8 +51,13 @@ regular file except itself.
 - `paper/manuscript.tex`
 - `paper/references.bib`
 - `proof/PROBLEM_AND_PROOF.md`
+- `release/EVIDENCE_BUNDLE.sha256`
+- `release/EVIDENCE_BUNDLE.zip`
+- `release/README.md`
+- `release/RELEASE_ASSET_SHA256SUMS.txt`
 - `release/RELEASE_CHECKLIST.md`
-- `release/RELEASE_NOTES_DRAFT.md`
+- `release/RELEASE_NOTES_v1.0.0.md`
+- `scripts/build_evidence_bundle.py`
 - `scripts/freeze_manifest.py`
 - `scripts/verify.sh`
 - `scripts/verify_repository.py`

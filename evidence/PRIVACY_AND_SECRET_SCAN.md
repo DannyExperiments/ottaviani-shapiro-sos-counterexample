@@ -8,6 +8,10 @@ ARCHIVE_PATH_SCAN: PASS
 SYMLINK_SCAN: PASS (no symlinks)
 REPOSITORY_VERIFIER_PRIVATE_DATA_SCAN: PASS
 POST_HARDENING_INDEPENDENT_SCAN: PASS
+FINAL_STAGED_TREE_TEXT_SCAN: PASS
+FINAL_BINARY_STRINGS_SCAN: PASS
+EVIDENCE_BUNDLE_INTERNAL_PATH_SCAN: PASS
+ARISTOTLE_REQUEST_ZIP_INTERNAL_PATH_SCAN: PASS
 FINAL_PDF_TEXT_EXTRACTION_SCAN: PASS
 FINAL_PDF_METADATA_AUTHOR_FIELD: EMPTY
 ```
@@ -20,9 +24,10 @@ Text-bearing source files were scanned recursively. The packaged ZIP was
 checked for absolute and parent-traversal paths and passed its CRC test. No
 matches were found.
 
-This scan does not authorize publication by itself. It must be repeated on
-the exact final manuscript, evidence bundle, Git history, release assets, and
-live remote immediately before human release approval.
+The exact final local staged tree, manuscript, deterministic evidence bundle,
+and release assets were scanned again after metadata finalization. The live
+remote and eventual public release assets must still be checked after merge
+and visibility change.
 
 The frozen PDF was extracted with Poppler and scanned for user-home paths,
 raw chat URLs, email addresses, tokens, cookies, private-key markers, Codex

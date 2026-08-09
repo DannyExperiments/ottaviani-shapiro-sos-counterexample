@@ -44,7 +44,10 @@ maximum requested by Problem 3.
 
 ## Release state
 
-`PUBLIC_CANDIDATE_RUNNING`, `MANUSCRIPT_PASS`, and
+`PUBLIC_CANDIDATE_PASS_VISIBILITY_PENDING`, `MANUSCRIPT_PASS`, and
 `PRIORITY_AUDIT_PASS_QUALIFIED`.
-Public visibility, authorship, license, DOI metadata, external notices, and
-badge activation require their separate gates and explicit human approval.
+
+Authorship (`DannyExperiments`), the AI disclosure, and the all-rights-reserved
+no-license status are finalized for this release. Public visibility, public
+default-branch CI, badge activation, an immutable `v1.0.0` release, DOI
+publication, and external notices remain separate post-visibility gates.

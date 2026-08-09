@@ -20,3 +20,7 @@ timestamps are nonsemantic: the archive bytes are covered by the repository
 checksum ledger, and no deterministic packet generator exists in this
 candidate. The archive was therefore not repacked merely to normalize ZIP
 metadata.
+
+The request ZIP is not included inside `release/EVIDENCE_BUNDLE.zip`; its two
+public-safe source documents are already included there as readable files.
+This avoids treating a request archive as returned formal-verification evidence.

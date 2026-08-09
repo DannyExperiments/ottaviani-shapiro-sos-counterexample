@@ -1,8 +1,8 @@
 # A counterexample to the Ottaviani--Shapiro isolated-zero conjecture
 
 <!--
-Activate these badges only after the clean repository exists publicly and both
-named workflows pass on its default branch:
+Activate these badges only after the repository is public and all three named
+workflows pass on its default branch:
 
 [![Verify public evidence](https://github.com/DannyExperiments/ottaviani-shapiro-sos-counterexample/actions/workflows/verify.yml/badge.svg)](https://github.com/DannyExperiments/ottaviani-shapiro-sos-counterexample/actions/workflows/verify.yml)
 [![Verifier replay](https://github.com/DannyExperiments/ottaviani-shapiro-sos-counterexample/actions/workflows/replay.yml/badge.svg)](https://github.com/DannyExperiments/ottaviani-shapiro-sos-counterexample/actions/workflows/replay.yml)
@@ -18,13 +18,9 @@ by Ottaviani and Shapiro for isolated real zeros of nonnegative sums of
 squares. It exhibits a quartic sum of squares in ten variables with exactly
 `1152` isolated real zeros, exceeding the conjectured value `2^10=1024`.
 
-> **Prepublication status.** This is a sanitized public-candidate worktree.
-> The audited proof, designated manuscript TeX, and frozen three-page PDF are
-> present. Source QA, scope comparison, PDF metadata checks, privacy extraction,
-> and page-by-page visual preflight pass. Public default-branch CI, human release
-> approvals, an immutable release, and a DOI do not yet exist. Badge definitions
-> are staged in a hidden comment and must remain hidden until the future public
-> default-branch runs succeed.
+The proof, designated manuscript source, frozen three-page PDF, public-safe
+audit reports, and deterministic replay bundle are included below. The result
+refutes Conjecture 4; it does **not** determine the exact maximum in Problem 3.
 
 ## Original problem
 
@@ -88,16 +84,19 @@ extremizers.
 [Problem and proof](proof/PROBLEM_AND_PROOF.md) ·
 [Paper (PDF)](paper/manuscript.pdf) ·
 [Designated manuscript TeX](paper/manuscript.tex) ·
+[Release notes](release/RELEASE_NOTES_v1.0.0.md) ·
 [Reproduce](REPRODUCIBILITY.md) ·
+[Citation metadata](CITATION.cff) ·
 [Mathematical audit](audits/public_safe_reports/MATHEMATICAL_AUDIT.md) ·
 [Live literature/priority audit](audits/public_safe_reports/LITERATURE_PRIORITY_AUDIT.md) ·
 [Architecture/terminology priority audit](audits/public_safe_reports/PRIORITY_AUDIT_ARCHITECTURE_2026-08-09.md) ·
 [Formalization status](formalization/README.md) ·
-[Claim/evidence matrix](CLAIMS_EVIDENCE_MATRIX.md)
+[Claim/evidence matrix](CLAIMS_EVIDENCE_MATRIX.md) ·
+[Deterministic evidence bundle](release/EVIDENCE_BUNDLE.zip)
 
-The paper is directly readable above. Workflow badges, the release link, and
-the DOI badge remain deliberately withheld until their separate public gates
-pass.
+The paper is directly readable above. Workflow badges remain hidden until all
+three workflows pass on the public default branch. A release link and DOI badge
+will be added only after the immutable release and DOI deposits exist.
 
 ## Verification status
 
@@ -110,13 +109,12 @@ pass.
 | Literature/priority | `PRIORITY_AUDIT_PASS_QUALIFIED`: apparently new after documented search through 2026-08-09, moderate confidence; generic/product-grid/SOS ingredients are prior art; absolute priority unclaimed. Three independent lanes are frozen. |
 | Human specialist review | Not obtained |
 | Lean/Aristotle | No kernel-checked formalization yet; request packet only |
-| Manuscript source | Designated candidate; source QA and hostile source-level audit `PASS` |
+| Manuscript source | Designated source; source QA and hostile source-level audit `PASS` |
 | Manuscript PDF | Frozen 3-page A4 artifact; SHA-256 `3622e8746ce08f94d4d42a6b0acb5628c10945c2afe2c8c7d03a35f42ba026a4`; visual preflight `PASS` |
 
 ## Authorship and disclosure
 
-The planned citation name follows the owner's established repository
-convention, `DannyExperiments`; it remains subject to human approval before
-release. AI systems assisted discovery, proof development, mathematical and
-literature auditing, and repository assembly. No AI system is proposed as an
-author. See [AI_DISCLOSURE.md](AI_DISCLOSURE.md).
+The citation name follows the repository owner's established convention,
+`DannyExperiments`. AI systems assisted discovery, proof development,
+mathematical and literature auditing, and repository assembly. No AI system is
+proposed as an author. See [AI_DISCLOSURE.md](AI_DISCLOSURE.md).

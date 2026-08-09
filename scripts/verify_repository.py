@@ -51,6 +51,12 @@ def verify_required_files() -> None:
         "checks/verify_even_family_counts.py",
         "formalization/FORMALIZATION_FEASIBILITY_AND_DEPENDENCIES.md",
         "release/RELEASE_CHECKLIST.md",
+        "release/RELEASE_NOTES_v1.0.0.md",
+        "release/README.md",
+        "release/EVIDENCE_BUNDLE.zip",
+        "release/EVIDENCE_BUNDLE.sha256",
+        "release/RELEASE_ASSET_SHA256SUMS.txt",
+        "scripts/build_evidence_bundle.py",
         "paper/manuscript.tex",
         "paper/manuscript.pdf",
         "paper/references.bib",
@@ -106,6 +112,7 @@ def verify_scope() -> None:
         "apparently new after documented search through 2026-08-09, moderate confidence",
         "generic/product-grid/SOS ingredients are prior art",
         "absolute priority unclaimed",
+        "PUBLIC_CANDIDATE_PASS_VISIBILITY_PENDING",
     ]:
         if marker.lower() not in joined.lower():
             fail(f"scope marker missing: {marker}")

@@ -28,6 +28,13 @@ ARCHITECTURE_PRIORITY_REPORT_SOURCE_SHA256: e778afd87ef2f74ff6689eebab34e9c9b3b9
 ARCHITECTURE_PRIORITY_REPORT_REPOSITORY_SHA256: fbfe8c2ad56cfaced4f1442b854a62e53dcd5efa9f29d73989ba1f53fdb3d163
 PRIORITY_LANES_FROZEN: 3
 PRIORITY_AUDIT_PASS_QUALIFIED: PASS
+PUBLIC_SURFACE_THEOREM_FIRST: PASS
+DIRECT_PDF_TEX_PROOF_AUDIT_REPLAY_CITATION_LINKS: PASS
+CITATION_CFF_VERSION_1_0_0: PASS
+ALL_RIGHTS_RESERVED_NO_LICENSE_STATUS: PASS
+WORKFLOW_BADGES_STAGED_BUT_HIDDEN: PASS
+ARISTOTLE_REQUEST_ZIP_EXCLUDED_FROM_EVIDENCE_BUNDLE: PASS
+FINAL_DETERMINISTIC_BUNDLE_REPLAY: PASS
 ```
 
 The Aristotle request archive was not repacked. Its SHA-256 digest is
@@ -43,3 +50,9 @@ workflows pass. The priority wording remains qualified and a strict third
 independent architecture-and-terminology lane is now frozen. Generic,
 product-grid, and SOS ingredients are acknowledged as prior art; no absolute
 historical-priority claim is made.
+
+The final public-candidate surface leads with the exact counterexample and
+keeps the scope boundary explicit: Conjecture 4 is refuted, while Problem 3's
+exact maximum remains open. Authorship, AI disclosure, and no-license metadata
+are finalized. Visibility, public default-branch CI, badge activation, the
+immutable release, DOI publication, and external notice remain separate gates.
