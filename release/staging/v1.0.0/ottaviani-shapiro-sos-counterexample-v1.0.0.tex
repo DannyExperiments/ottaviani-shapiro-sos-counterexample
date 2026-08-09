@@ -1,0 +1,193 @@
+\documentclass[a4paper,11pt]{amsart}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{microtype}
+\usepackage[hidelinks]{hyperref}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+
+\title[Isolated zeros of sums of squares]{Many Isolated Real Zeros of Sums of Squares}
+\date{}
+
+\begin{document}
+
+\begin{abstract}
+Let $\widetilde{\#}(2k,\ell)$ be the largest number of isolated real zeros of a sum of squares of real polynomials of degree at most $k$ in $\ell$ variables.  We construct an explicit quartic sum of nine squares in ten variables with exactly $1152$ isolated real zeros, exceeding $2^{10}$.  This refutes the Ottaviani--Shapiro conjecture $\widetilde{\#}(2k,\ell)=k^\ell$.  We also give a uniform construction proving $\widetilde{\#}(2k,\ell)\ge ((\ell-1)(k-1)/4)k^{\ell-1}$ for every even $k\ge2$ and $\ell\ge3$; no exact extremal formula or matching upper bound is claimed.
+\end{abstract}
+
+\maketitle
+
+\section{The conjecture and the counterexample}
+
+For integers $k,\ell\ge1$, let $\widetilde{\#}(2k,\ell)$ denote the largest possible number of isolated real zeros of a polynomial in $\ell$ variables that is a finite sum of squares of real polynomials of degree at most $k$. Ottaviani and Shapiro conjectured that
+\begin{equation}\label{eq:conjecture}
+ \widetilde{\#}(2k,\ell)=k^\ell
+\end{equation}
+in Shapiro's problem collection~\cite[Problem~3 and Conjecture~4]{Shapiro2015}.
+
+\begin{theorem}\label{thm:counterexample}
+There is a quartic sum of nine squares in ten real variables having exactly $1152$ isolated real zeros. Consequently
+\[
+ \widetilde{\#}(4,10)\ge1152>1024=2^{10},
+\]
+so~\eqref{eq:conjecture} is false.
+\end{theorem}
+
+\begin{proof}
+Use the variables $t,x_0,x_1,\ldots,x_8$ and define
+\begin{equation}\label{eq:qbase}
+ q_0=x_0^2+t(t-8),\qquad
+ q_i=x_i^2-(t-i+1)(t-i)\quad(1\le i\le8).
+\end{equation}
+Set
+\[
+ P=q_0^2+q_1^2+\cdots+q_8^2.
+\]
+Then $P$ is nonnegative, is a sum of nine squares of quadratic polynomials, and has degree four. Over the reals, $P=0$ if and only if every $q_i$ is zero, equivalently
+\begin{equation}\label{eq:radicands}
+ x_0^2=t(8-t),\qquad
+ x_i^2=(t-i+1)(t-i)\quad(1\le i\le8).
+\end{equation}
+The first equation forces $0\le t\le8$. For $i\ge1$, the right-hand side is nonnegative exactly when $t\le i-1$ or $t\ge i$, so the $i$th equation excludes $(i-1,i)$. Therefore $t\in\{0,1,\ldots,8\}$.
+
+Conversely, every one of these nine values is feasible. At $t=j$, exactly two of the nine radicands in~\eqref{eq:radicands} vanish: $x_0,x_1$ when $j=0$; $x_j,x_{j+1}$ when $1\le j\le7$; and $x_0,x_8$ when $j=8$. The other seven radicands are strictly positive and admit two independent sign choices each. Thus every $t$-slice contains $2^7=128$ points, and
+\[
+ \#Z_{\R}(P)=9\cdot2^7=1152.
+\]
+The real zero set is finite, hence all of its points are isolated.
+\end{proof}
+
+\section{Algebraic structure of the base example}
+
+For $j\in\{0,\ldots,8\}$, put
+\[
+ a_0(j)=j(8-j),\qquad
+ a_i(j)=(j-i+1)(j-i)\quad(1\le i\le8),
+\]
+and define
+\[
+ K_j=\bigl(t-j,\ x_i\text{ for }a_i(j)=0,\ x_i^2-a_i(j)\text{ for }a_i(j)>0\bigr).
+\]
+
+\begin{proposition}\label{prop:radical}
+If $I=(q_0,\ldots,q_8)\subset\R[t,x_0,\ldots,x_8]$, then
+\[
+ \sqrt[\R]{I}=\bigcap_{j=0}^8K_j.
+\]
+Each $K_j$ is real radical, and its real variety consists of $2^7$ points.
+\end{proposition}
+
+\begin{proof}
+Every positive quadratic $x_i^2-a_i(j)$ splits into two distinct real linear factors. Since the seven factorizations involve distinct variables, $K_j$ is the intersection of $2^7$ real maximal ideals. The sign analysis in the proof of Theorem~\ref{thm:counterexample} shows that these nine fibers are exactly the real common-zero set of $I$. The real Nullstellensatz gives the displayed decomposition.
+\end{proof}
+
+The complex common-zero locus is not zero-dimensional. Its coordinate ring is
+\[
+ A=\C[t,x_0,\ldots,x_8]/
+ \bigl(x_0^2-t(8-t),\ x_i^2-(t-i+1)(t-i):1\le i\le8\bigr).
+\]
+Successive division by the nine monic quadratics, each in its own variable, gives the explicit $\C[t]$-basis
+\[
+ x_0^{e_0}x_1^{e_1}\cdots x_8^{e_8},\qquad e_i\in\{0,1\}.
+\]
+Hence $A$ is finite free of rank $2^9=512$ over $\C[t]$. Equivalently, the nine quadratics form a regular sequence and define an unmixed one-dimensional complete intersection. Therefore every irreducible component of the complex common-zero locus is one-dimensional; there is no hidden vertical zero-dimensional component. The isolated real points lie on positive-dimensional complex components, which is why a naive zero-dimensional Bezout count does not apply.
+
+\section{A general even-degree family}
+
+The same selector construction yields a uniform lower-bound family.
+
+\begin{theorem}\label{thm:family}
+For every even $k\ge2$ and every $\ell\ge3$,
+\begin{equation}\label{eq:familybound}
+ \widetilde{\#}(2k,\ell)
+ \ge \frac{(\ell-1)(k-1)}4\,k^{\ell-1}.
+\end{equation}
+In particular, the conjectured value $k^\ell$ is exceeded whenever
+$(\ell-1)(k-1)>4k$.
+\end{theorem}
+
+\begin{proof}
+Write $k=2d$, put $m=\ell-1$ and $N=md$, and use variables $t,x_1,\ldots,x_m$. Define degree-$k$ sign polynomials
+\begin{align*}
+ A_1(t)&=-(t-d)(t-N)\prod_{r=1}^{d-1}(t-r)^2,\\
+ A_i(t)&=(t-(i-1)d)(t-id)
+          \prod_{r=(i-1)d+1}^{id-1}(t-r)^2\quad(2\le i\le m),
+\end{align*}
+where an empty product equals one. Their simultaneous nonnegative locus is exactly $\{1,2,\ldots,N\}$. Indeed, $A_1$ excludes both exterior regions and every nonintegral point of the first block, while $A_i$ is negative at every nonintegral point of its own block $((i-1)d,id)$ for $i\ge2$. Every retained integer makes all $A_i$ nonnegative.
+
+Among the retained integers, $m(d-1)$ are internal block points at which exactly one $A_i$ vanishes, and $m$ are cyclic block-boundary points at which exactly two $A_i$ vanish. Define
+\[
+ F_d(x)=\prod_{r=1}^d(x-r)^2
+\]
+and
+\[
+ \eta_d=\min\{F_d(r+\sigma/3):1\le r\le d,\ \sigma\in\{-1,1\}\}>0.
+\]
+Let
+\[
+ M=\max\{A_i(j):1\le i\le m,\ 1\le j\le N\}\ge0,
+ \qquad
+ \varepsilon=\frac{\eta_d}{2(1+M)}.
+\]
+The weak inequality $M\ge0$ includes the boundary case $(k,\ell)=(2,3)$, where $M=0$. Put
+\[
+ q_i(x_i,t)=F_d(x_i)-\varepsilon A_i(t),
+ \qquad
+ P_{k,\ell}=\sum_{i=1}^m q_i(x_i,t)^2.
+\]
+Every $q_i$ has degree at most $k$. If $t\notin\{1,\ldots,N\}$, some $A_i(t)<0$, so the corresponding equation $q_i=0$ has no real solution.
+
+At an allowed integer, if $A_i=0$, then $q_i=F_d$ has exactly $d=k/2$ distinct real roots. If $A_i>0$, put $c=\varepsilon A_i$. Then $0<c<\eta_d$. On each of the $d$ disjoint intervals $(r-1/3,r+1/3)$, the polynomial $F_d-c$ is positive at both endpoints and negative at $r$. Hence it has at least two roots in each interval. Its degree is $2d=k$, so these are exactly $k$ distinct real roots.
+
+A one-active integer therefore contributes $(k/2)k^{m-1}$ points, and a two-active integer contributes $(k/2)^2k^{m-2}$. Summing gives
+\[
+ \begin{aligned}
+ \#Z_{\R}(P_{k,\ell})
+ &=m(d-1)\frac{k}{2}k^{m-1}
+   +m\left(\frac{k}{2}\right)^2k^{m-2}\\
+ &=\frac{m(k-1)}4k^m,
+ \end{aligned}
+\]
+which is~\eqref{eq:familybound}. The real zero set is finite, so all counted points are isolated.
+\end{proof}
+
+The family refutes~\eqref{eq:conjecture}, for example, when $k=2$ and $\ell\ge10$, when $k=4$ and $\ell\ge7$, and for every even $k\ge6$ and $\ell\ge6$.
+
+\begin{corollary}\label{cor:transfer}
+For every $k\ge2$ and $\ell\ge3$, set $e=2\lfloor k/2\rfloor$. Then
+\[
+ \widetilde{\#}(2k,\ell)
+ \ge\frac{(\ell-1)(e-1)}4e^{\ell-1}.
+\]
+\end{corollary}
+
+\begin{proof}
+Apply Theorem~\ref{thm:family} with summand degree $e\le k$. For odd $k\ge3$, this uses $e=k-1$. No claim is made for $k=1$.
+\end{proof}
+
+If two admissible sums of squares in disjoint variable sets have finite real zero sets of sizes $R_1$ and $R_2$, their sum has Cartesian-product zero set of size $R_1R_2$. Thus strict block violations can be amplified through independent blocks.
+
+\section{Scope}
+
+The construction refutes the universal equality~\eqref{eq:conjecture}; it does not determine the exact extremal function. In particular, it does not prove $\widetilde{\#}(4,10)=1152$, provide a matching upper bound for~\eqref{eq:familybound}, or classify extremizers.
+
+\begin{thebibliography}{9}
+
+\bibitem{Shapiro2015}
+B.~Shapiro,
+\emph{Problems around polynomials: the good, the bad and the ugly},
+Arnold Math. J. \textbf{1} (2015), 91--99.
+\href{https://doi.org/10.1007/s40598-015-0008-4}{doi:10.1007/s40598-015-0008-4}.
+\href{https://arxiv.org/abs/1503.05295}{arXiv:1503.05295}.
+
+\end{thebibliography}
+
+\end{document}

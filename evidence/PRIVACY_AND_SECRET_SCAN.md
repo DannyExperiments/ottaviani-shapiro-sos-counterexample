@@ -15,6 +15,8 @@ ARISTOTLE_REQUEST_ZIP_INTERNAL_PATH_SCAN: PASS
 FINAL_PDF_TEXT_EXTRACTION_SCAN: PASS
 FINAL_PDF_METADATA_AUTHOR_FIELD: EMPTY
 PUBLIC_PR_ARTIFACT_ZIP_PATH_AND_CRC_SCAN: PASS
+PUBLIC_MAIN_RELEASE_SURFACE_ANONYMOUS_SCAN: PASS
+PUBLIC_MAIN_ARTIFACT_PARITY: PASS
 ```
 
 The allowlisted candidate was scanned for raw ChatGPT conversation/share
@@ -27,8 +29,10 @@ matches were found.
 
 The exact final local staged tree, manuscript, deterministic evidence bundle,
 five planned release assets, and downloaded successful PR artifact were
-scanned again after metadata finalization. The eventual public default-branch
-artifacts must still be checked after merge and visibility change.
+scanned again after metadata finalization. The repository, raw README,
+Actions page, and three badge image and target URLs were then checked
+anonymously after the public-main workflows passed; public-main artifact
+parity also passed.
 
 The frozen PDF was extracted with Poppler and scanned for user-home paths,
 raw chat URLs, email addresses, tokens, cookies, private-key markers, Codex

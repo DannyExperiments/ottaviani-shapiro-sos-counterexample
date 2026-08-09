@@ -36,7 +36,22 @@ PUBLIC_SURFACE_THEOREM_FIRST: PASS
 DIRECT_PDF_TEX_PROOF_AUDIT_REPLAY_CITATION_LINKS: PASS
 CITATION_CFF_VERSION_1_0_0: PASS
 ALL_RIGHTS_RESERVED_NO_LICENSE_STATUS: PASS
-WORKFLOW_BADGES_STAGED_BUT_HIDDEN: PASS
+PUBLIC_REPOSITORY_ANONYMOUS_ACCESS: PASS
+PUBLIC_DEFAULT_BRANCH_HEAD: 78a6a49461df990abf01a8d5089fcd074002fd36
+PUBLIC_DEFAULT_BRANCH_TREE: 6677b47d7da528c4bad8252b608529e187f73bac
+PUBLIC_MAIN_VERIFY_RUN: 31296200851
+PUBLIC_MAIN_VERIFY_JOB: 93201578108
+PUBLIC_MAIN_VERIFY_CHECK: Verify public evidence
+PUBLIC_MAIN_REPLAY_RUN: 31296200854
+PUBLIC_MAIN_REPLAY_JOB: 93201578158
+PUBLIC_MAIN_REPLAY_CHECK: Replay exact counterexample checks
+PUBLIC_MAIN_PDF_RUN: 31296200849
+PUBLIC_MAIN_PDF_JOB: 93201578150
+PUBLIC_MAIN_PDF_CHECK: Rebuild manuscript PDF
+PUBLIC_MAIN_PDF_ARTIFACT_ID: 9033026233
+PUBLIC_MAIN_PDF_ARTIFACT_DIGEST: sha256:a796fa661318c52403d61e62450f8228123dd622e5c0c2c2ab62248bfc0a68ac
+PUBLIC_MAIN_PDF_ARTIFACT_PARITY: PASS
+WORKFLOW_BADGES_VISIBLE_AND_ANONYMOUSLY_TESTED: PASS
 ARISTOTLE_REQUEST_ZIP_EXCLUDED_FROM_EVIDENCE_BUNDLE: PASS
 FIVE_RELEASE_ASSET_LEDGER: PASS
 FINAL_DETERMINISTIC_BUNDLE_REPLAY: PASS
@@ -52,8 +67,9 @@ with the workflow, citation, ignore/attribute, manifest, and repository-check
 changes in this hardening pass do not alter the theorem statement, witness,
 proof, family bound, or priority classification. The frozen PDF has now passed
 page-by-page visual preflight, including the repaired section-heading
-separation, but badges remain hidden until the public default-branch workflows
-pass. The priority wording remains qualified and a strict third
+separation. The public default-branch workflows and artifact-parity gate now
+pass, and all three visible workflow badges were anonymously tested. The
+priority wording remains qualified and a strict third
 independent architecture-and-terminology lane is now frozen. Generic,
 product-grid, and SOS ingredients are acknowledged as prior art; no absolute
 historical-priority claim is made.
@@ -61,5 +77,6 @@ historical-priority claim is made.
 The final public-candidate surface leads with the exact counterexample and
 keeps the scope boundary explicit: Conjecture 4 is refuted, while Problem 3's
 exact maximum remains open. Authorship, AI disclosure, and no-license metadata
-are finalized. Visibility, public default-branch CI, badge activation, the
-immutable release, DOI publication, and external notice remain separate gates.
+are finalized. Visibility, public default-branch CI, and badge activation are
+complete. Default-branch protection, the immutable release, DOI publication,
+and external notice remain separate gates.

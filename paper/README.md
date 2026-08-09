@@ -11,10 +11,10 @@ The frozen output is [`manuscript.pdf`](manuscript.pdf), SHA-256
 Source-level formatting, theorem scope, privacy, exact verifier QA, PDF
 metadata, embedded fonts, and page-by-page visual inspection pass. The
 cached-only local Tectonic attempt remains recorded as an environment failure.
-The release-hardening PR build passes; the public default-branch workflow rerun
-remains pending.
+The release-hardening PR build and the public default-branch workflow pass;
+public-main artifact parity also passes.
 
 Read `CLAIM_SCOPE_AND_LIMITATIONS.md`, `SOURCE_COMPARISON.md`, `SOURCE_QA.md`,
 `VERIFIER_REPLAY_LOG.txt`, `PDF_PREFLIGHT.md`, and `BUILD_STATUS.md` before
-treating the files as a release candidate. Do not display a PDF-build badge
-until a clean public default-branch workflow passes.
+treating the files as a release candidate. The visible PDF-build badge and
+target were anonymously tested after the clean public-main workflow passed.

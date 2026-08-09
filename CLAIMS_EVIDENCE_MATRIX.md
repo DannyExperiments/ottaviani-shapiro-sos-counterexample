@@ -13,6 +13,6 @@
 | Result is historically first | Negative searches cannot prove this | **Not claimed** |
 | Apparently new after documented search through 2026-08-09 | Three independent priority lanes, including the live audit and `audits/public_safe_reports/PRIORITY_AUDIT_ARCHITECTURE_2026-08-09.md` | `PRIORITY_AUDIT_PASS_QUALIFIED`; moderate confidence; generic/product-grid/SOS ingredients are prior art; absolute priority unclaimed |
 | `paper/manuscript.tex` is the designated source | Source comparison, `paper/SOURCE_QA.md`, and hostile source-level audit | Source QA and hostile source audit `PASS` |
-| The frozen manuscript PDF passed CI rebuild and visual preflight | `paper/manuscript.pdf`, exact hash, GitHub Actions run `31295131872`, and `paper/PDF_PREFLIGHT.md` | 3 A4 pages; PR rebuild and scope/privacy/metadata/visual checks `PASS`; public default-branch rebuild pending |
+| The frozen manuscript PDF passed CI rebuild and visual preflight | `paper/manuscript.pdf`, exact hash, PR run `31295131872`, public-main run `31296200849`, and `paper/PDF_PREFLIGHT.md` | 3 A4 pages; source/artifact parity and scope/privacy/metadata/visual checks `PASS`; public-main PDF badge anonymously tested and passing |
 | Lean verified | No kernel artifact exists | **Not claimed** |
 | Human peer reviewed | No specialist report exists | **Not claimed** |

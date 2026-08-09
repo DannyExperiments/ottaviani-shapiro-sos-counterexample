@@ -56,6 +56,12 @@ def verify_required_files() -> None:
         "release/EVIDENCE_BUNDLE.zip",
         "release/EVIDENCE_BUNDLE.sha256",
         "release/RELEASE_ASSET_SHA256SUMS.txt",
+        "release/staging/v1.0.0/CITATION.cff",
+        "release/staging/v1.0.0/ottaviani-shapiro-sos-counterexample-public-evidence-v1.0.0.zip",
+        "release/staging/v1.0.0/ottaviani-shapiro-sos-counterexample-v1.0.0.pdf",
+        "release/staging/v1.0.0/ottaviani-shapiro-sos-counterexample-v1.0.0.tex",
+        "release/staging/v1.0.0/references.bib",
+        "release/staging/v1.0.0/SHA256SUMS.txt",
         "scripts/build_evidence_bundle.py",
         "paper/manuscript.tex",
         "paper/manuscript.pdf",
@@ -91,10 +97,18 @@ def verify_workflows() -> None:
             fail(f"PDF workflow hardening marker missing: {marker}")
 
     readme = (ROOT / "README.md").read_text(encoding="utf-8")
-    if "actions/workflows/pdf.yml/badge.svg" not in readme:
-        fail("staged PDF badge definition missing")
-    if "<!--" not in readme.split("actions/workflows/pdf.yml/badge.svg", 1)[0]:
-        fail("PDF badge must remain hidden before the public rerun")
+    badge_block = "\n".join([
+        "[![Verify public evidence](https://github.com/DannyExperiments/ottaviani-shapiro-sos-counterexample/actions/workflows/verify.yml/badge.svg)](https://github.com/DannyExperiments/ottaviani-shapiro-sos-counterexample/actions/workflows/verify.yml)",
+        "[![Verifier replay](https://github.com/DannyExperiments/ottaviani-shapiro-sos-counterexample/actions/workflows/replay.yml/badge.svg)](https://github.com/DannyExperiments/ottaviani-shapiro-sos-counterexample/actions/workflows/replay.yml)",
+        "[![PDF build](https://github.com/DannyExperiments/ottaviani-shapiro-sos-counterexample/actions/workflows/pdf.yml/badge.svg)](https://github.com/DannyExperiments/ottaviani-shapiro-sos-counterexample/actions/workflows/pdf.yml)",
+    ])
+    if not readme.startswith(
+        "# A counterexample to the Ottaviani--Shapiro isolated-zero conjecture\n\n"
+        + badge_block
+    ):
+        fail("three public-main workflow badges must be visible below the title")
+    if "actions/workflows/lean" in readme.lower():
+        fail("Lean badge is forbidden without a scope-matched kernel theorem")
 
 
 def verify_scope() -> None:
@@ -112,7 +126,7 @@ def verify_scope() -> None:
         "apparently new after documented search through 2026-08-09, moderate confidence",
         "generic/product-grid/SOS ingredients are prior art",
         "absolute priority unclaimed",
-        "PUBLIC_CANDIDATE_PASS_VISIBILITY_PENDING",
+        "PUBLIC_MAIN_CI_PASS_RELEASE_PENDING",
     ]:
         if marker.lower() not in joined.lower():
             fail(f"scope marker missing: {marker}")
@@ -125,8 +139,14 @@ def verify_scope() -> None:
         "PUBLIC_PR_REBUILD: PASS",
         "PUBLIC_PR_REBUILD_HEAD: 7c2eb4031131923f98fe4779f17a6d6578fea1ea",
         "PUBLIC_PR_REBUILD_RUN: 31295131872",
-        "PUBLIC_DEFAULT_BRANCH_REBUILD: PENDING",
-        "PDF_BADGE: HIDDEN",
+        "PUBLIC_DEFAULT_BRANCH_REBUILD: PASS",
+        "PUBLIC_DEFAULT_BRANCH_HEAD: 78a6a49461df990abf01a8d5089fcd074002fd36",
+        "PUBLIC_DEFAULT_BRANCH_PDF_RUN: 31296200849",
+        "PUBLIC_DEFAULT_BRANCH_PDF_JOB: 93201578150",
+        "PUBLIC_DEFAULT_BRANCH_ARTIFACT_ID: 9033026233",
+        "PUBLIC_DEFAULT_BRANCH_ARTIFACT_DIGEST: sha256:a796fa661318c52403d61e62450f8228123dd622e5c0c2c2ab62248bfc0a68ac",
+        "PUBLIC_DEFAULT_BRANCH_ARTIFACT_PARITY: PASS",
+        "PDF_BADGE: VISIBLE_PASSING",
     ]:
         if marker not in build_status:
             fail(f"manuscript build boundary missing: {marker}")
@@ -138,9 +158,33 @@ def verify_scope() -> None:
         "PDF_TEXT_PRIVACY_SCAN: PASS",
         "PDF_EMBEDDED_FONT_SCAN: PASS",
         "PDF_VISUAL_PREFLIGHT: PASS",
+        "31296200849",
+        "93201578150",
+        "9033026233",
     ]:
         if marker not in preflight:
             fail(f"PDF preflight marker missing: {marker}")
+
+    release_audit = (
+        ROOT / "evidence/RELEASE_HARDENING_AUDIT_2026-08-09.md"
+    ).read_text(encoding="utf-8")
+    for marker in [
+        "PUBLIC_REPOSITORY_ANONYMOUS_ACCESS: PASS",
+        "PUBLIC_DEFAULT_BRANCH_HEAD: 78a6a49461df990abf01a8d5089fcd074002fd36",
+        "PUBLIC_DEFAULT_BRANCH_TREE: 6677b47d7da528c4bad8252b608529e187f73bac",
+        "PUBLIC_MAIN_VERIFY_RUN: 31296200851",
+        "PUBLIC_MAIN_VERIFY_JOB: 93201578108",
+        "PUBLIC_MAIN_VERIFY_CHECK: Verify public evidence",
+        "PUBLIC_MAIN_REPLAY_RUN: 31296200854",
+        "PUBLIC_MAIN_REPLAY_JOB: 93201578158",
+        "PUBLIC_MAIN_REPLAY_CHECK: Replay exact counterexample checks",
+        "PUBLIC_MAIN_PDF_RUN: 31296200849",
+        "PUBLIC_MAIN_PDF_JOB: 93201578150",
+        "PUBLIC_MAIN_PDF_CHECK: Rebuild manuscript PDF",
+        "WORKFLOW_BADGES_VISIBLE_AND_ANONYMOUSLY_TESTED: PASS",
+    ]:
+        if marker not in release_audit:
+            fail(f"public-main release audit marker missing: {marker}")
 
 
 def verify_frozen_artifacts() -> None:
@@ -159,6 +203,118 @@ def verify_frozen_artifacts() -> None:
     pdf = (ROOT / "paper/manuscript.pdf").read_bytes()
     if not pdf.startswith(b"%PDF-"):
         fail("frozen manuscript is not a PDF")
+
+
+def verify_release_staging() -> None:
+    staging = ROOT / "release/staging/v1.0.0"
+    sources = {
+        "CITATION.cff": ROOT / "CITATION.cff",
+        "ottaviani-shapiro-sos-counterexample-public-evidence-v1.0.0.zip":
+            ROOT / "release/EVIDENCE_BUNDLE.zip",
+        "ottaviani-shapiro-sos-counterexample-v1.0.0.pdf":
+            ROOT / "paper/manuscript.pdf",
+        "ottaviani-shapiro-sos-counterexample-v1.0.0.tex":
+            ROOT / "paper/manuscript.tex",
+        "references.bib": ROOT / "paper/references.bib",
+    }
+    actual_names = {
+        path.name for path in staging.iterdir()
+        if path.is_file() and path.name != "SHA256SUMS.txt"
+    }
+    if actual_names != set(sources):
+        fail(
+            "release staging inventory mismatch; "
+            f"expected={sorted(sources)}, actual={sorted(actual_names)}"
+        )
+    for name, source in sources.items():
+        if sha256(staging / name) != sha256(source):
+            fail(f"release staging asset mismatch: {name}")
+    if (
+        (staging / "SHA256SUMS.txt").read_text(encoding="utf-8")
+        != (ROOT / "release/RELEASE_ASSET_SHA256SUMS.txt").read_text(encoding="utf-8")
+    ):
+        fail("release staging checksum ledger is out of date")
+
+
+def verify_public_state_language() -> None:
+    current_surfaces = [
+        "README.md",
+        "STATUS.md",
+        "CLAIMS_EVIDENCE_MATRIX.md",
+        "PROVENANCE.md",
+        "REPRODUCIBILITY.md",
+        "verification/README.md",
+        "paper/BUILD.md",
+        "paper/BUILD_LOG.txt",
+        "paper/BUILD_STATUS.md",
+        "paper/PDF_PREFLIGHT.md",
+        "paper/README.md",
+        "release/README.md",
+        "release/RELEASE_CHECKLIST.md",
+        "release/RELEASE_NOTES_v1.0.0.md",
+        "evidence/PRIVACY_AND_SECRET_SCAN.md",
+        "evidence/RELEASE_HARDENING_AUDIT_2026-08-09.md",
+    ]
+    stale = [
+        "PUBLIC_CANDIDATE_PASS_VISIBILITY_PENDING",
+        "PUBLIC_DEFAULT_BRANCH_REBUILD: PENDING",
+        "PDF_BADGE: HIDDEN",
+        "Activate these badges only after",
+        "repository remains private",
+        "human changes repository visibility to public",
+        "badges remain hidden",
+        "badges stay hidden",
+        "workflow badges remain hidden",
+        "public default-branch rebuild pending",
+        "post-visibility gates",
+    ]
+    for relative in current_surfaces:
+        lowered = (ROOT / relative).read_text(encoding="utf-8").lower()
+        for fragment in stale:
+            if fragment.lower() in lowered:
+                fail(f"stale public-state language in {relative}: {fragment}")
+
+    required_pending = {
+        "README.md": [
+            "A release link and DOI badge will be added only after the immutable",
+            "release and DOI deposits exist.",
+        ],
+        "STATUS.md": [
+            "no immutable versioned GitHub",
+            "Default-branch protection, an immutable `v1.0.0` release, DOI publication",
+        ],
+        "release/README.md": [
+            "No immutable release exists yet.",
+            "Default-branch protection, the immutable tag/release, DOI publication",
+        ],
+        "release/RELEASE_NOTES_v1.0.0.md": [
+            "remain staged Version 1.0.0 notes until an immutable `v1.0.0` tag",
+            "No DOI has been deposited.",
+        ],
+        "release/RELEASE_CHECKLIST.md": [
+            "- [ ] Default branch protected against force push and deletion",
+            "- [ ] Immutable `v1.0.0` release created and assets re-hashed",
+            "- [ ] DOI collision scan repeated and DOI deposit verified",
+        ],
+    }
+    for relative, markers in required_pending.items():
+        text = (ROOT / relative).read_text(encoding="utf-8")
+        normalized_text = " ".join(text.split())
+        for marker in markers:
+            if " ".join(marker.split()) not in normalized_text:
+                fail(f"release/DOI pending boundary missing in {relative}: {marker}")
+
+    citation = (ROOT / "CITATION.cff").read_text(encoding="utf-8")
+    # CFF is YAML, so a DOI may appear below a nested mapping such as
+    # ``preferred-citation``.  Match the key at every indentation depth; the
+    # pre-deposit repository must not claim any DOI until the verified DOI
+    # metadata update deliberately changes this release-phase guard.
+    if re.search(r"(?mi)^[ \t]*doi[ \t]*:", citation):
+        fail("CITATION.cff must not claim a DOI before a verified DOI deposit")
+    for relative in current_surfaces:
+        text = (ROOT / relative).read_text(encoding="utf-8")
+        if "/releases/tag/v1.0.0" in text:
+            fail(f"immutable release URL asserted before release creation: {relative}")
 
 
 def verify_privacy() -> None:
@@ -248,6 +404,8 @@ def main() -> None:
     verify_workflows()
     verify_scope()
     verify_frozen_artifacts()
+    verify_release_staging()
+    verify_public_state_language()
     verify_privacy()
     replay()
     verify_ledger()
@@ -255,6 +413,7 @@ def main() -> None:
     print("SCOPE_BOUNDARY=PASS")
     print("PRIVATE_DATA_SCAN=PASS")
     print("EXACT_VERIFIER_REPLAY=PASS")
+    print("PUBLIC_MAIN_BADGES_AND_RELEASE_STAGING=PASS")
 
 
 if __name__ == "__main__":

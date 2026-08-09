@@ -57,6 +57,12 @@ regular file except itself.
 - `release/RELEASE_ASSET_SHA256SUMS.txt`
 - `release/RELEASE_CHECKLIST.md`
 - `release/RELEASE_NOTES_v1.0.0.md`
+- `release/staging/v1.0.0/CITATION.cff`
+- `release/staging/v1.0.0/SHA256SUMS.txt`
+- `release/staging/v1.0.0/ottaviani-shapiro-sos-counterexample-public-evidence-v1.0.0.zip`
+- `release/staging/v1.0.0/ottaviani-shapiro-sos-counterexample-v1.0.0.pdf`
+- `release/staging/v1.0.0/ottaviani-shapiro-sos-counterexample-v1.0.0.tex`
+- `release/staging/v1.0.0/references.bib`
 - `scripts/build_evidence_bundle.py`
 - `scripts/freeze_manifest.py`
 - `scripts/verify.sh`

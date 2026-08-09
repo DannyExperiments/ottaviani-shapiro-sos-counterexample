@@ -13,12 +13,15 @@ The planned immutable release asset set is:
   deterministic sanitized evidence subset.
 
 `EVIDENCE_BUNDLE.sha256` records the archive hash.
-`RELEASE_ASSET_SHA256SUMS.txt` records all five release-asset hashes.
+`RELEASE_ASSET_SHA256SUMS.txt` records all five release-asset hashes. Exact
+renamed copies and their checksum ledger are assembled under
+`release/staging/v1.0.0/`; this local directory is staging evidence, not a tag
+or published GitHub release.
 The builder synthesizes an internal bundle manifest, checksum ledger, and
 replay README and is checked by the repository verification workflow.
 
-The repository remains private until its owner changes visibility. Public
-default-branch CI, badge activation, branch-protection verification, the
-immutable tag/release, DOI publication, and anonymous public-page checks remain
-post-visibility gates. The staged assets do not themselves assert that those
-gates have passed.
+The repository is public. All three default-branch workflows pass, and the
+repository, Actions page, badge images, and badge targets were anonymously
+tested. Default-branch protection, the immutable tag/release, DOI publication,
+and external notice remain pending. The staged assets do not themselves assert
+that those later gates have passed.

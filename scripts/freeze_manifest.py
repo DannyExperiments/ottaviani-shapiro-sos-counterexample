@@ -9,7 +9,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 EXCLUDED_PARTS = {".git"}
-EXCLUDED_NAMES = {"SHA256SUMS.txt", "MANIFEST.md"}
+EXCLUDED_PATHS = {ROOT / "SHA256SUMS.txt", ROOT / "MANIFEST.md"}
 
 
 def files() -> list[Path]:
@@ -24,7 +24,7 @@ def files() -> list[Path]:
             continue
         if "__pycache__" in relative.parts or path.suffix in {".pyc", ".pyo"}:
             raise SystemExit(f"refusing to freeze generated Python cache: {relative.as_posix()}")
-        if path.name not in EXCLUDED_NAMES:
+        if path not in EXCLUDED_PATHS:
             current.append(path)
     return sorted(current)
 
