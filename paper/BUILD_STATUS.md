@@ -18,12 +18,19 @@ PUBLIC_PR_REBUILD: PASS
 PUBLIC_PR_REBUILD_HEAD: 7c2eb4031131923f98fe4779f17a6d6578fea1ea
 PUBLIC_PR_REBUILD_RUN: 31295131872
 PUBLIC_PR_ARTIFACT_ZIP_SHA256: 03bf4d9e1c4b62027e54dad850c9ffbb28c28ded7aff440385bffa2462e90ddd
-PUBLIC_DEFAULT_BRANCH_REBUILD: PENDING
-PDF_BADGE: HIDDEN
+PUBLIC_DEFAULT_BRANCH_REBUILD: PASS
+PUBLIC_DEFAULT_BRANCH_HEAD: 78a6a49461df990abf01a8d5089fcd074002fd36
+PUBLIC_DEFAULT_BRANCH_PDF_RUN: 31296200849
+PUBLIC_DEFAULT_BRANCH_PDF_JOB: 93201578150
+PUBLIC_DEFAULT_BRANCH_ARTIFACT_ID: 9033026233
+PUBLIC_DEFAULT_BRANCH_ARTIFACT_DIGEST: sha256:a796fa661318c52403d61e62450f8228123dd622e5c0c2c2ab62248bfc0a68ac
+PUBLIC_DEFAULT_BRANCH_ARTIFACT_PARITY: PASS
+PDF_BADGE: VISIBLE_PASSING
 ```
 
 The historical cached-only attempt stopped before parsing the manuscript
 because the local Tectonic resource cache lacked `tectonic-format-latex.tex`.
 The exact PDF rebuilt by the pinned, read-only GitHub Actions workflow on the
-release-hardening PR is now integrated and separately verified. The badge
-remains hidden until the workflow passes on the public default branch.
+release-hardening PR is integrated and separately verified. The same workflow
+passed on public `main`; its artifact parity passed, and the visible badge and
+target were anonymously tested.

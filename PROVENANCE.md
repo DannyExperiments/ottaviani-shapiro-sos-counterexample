@@ -33,3 +33,12 @@ GitHub Actions run `31295131872` at release-hardening PR head
 SHA-256 `03bf4d9e1c4b62027e54dad850c9ffbb28c28ded7aff440385bffa2462e90ddd`.
 The workflow source blob and the designated local TeX source are identical
 (Git blob `19852603caec86af6d9ce863b765442400b1e830`).
+
+The repository became publicly accessible with default branch `main`. At
+public-main commit `78a6a49461df990abf01a8d5089fcd074002fd36`, tree
+`6677b47d7da528c4bad8252b608529e187f73bac`, the evidence, replay, and PDF
+workflows passed in runs `31296200851`, `31296200854`, and `31296200849`,
+respectively. Anonymous repository, raw-file, Actions, badge
+image, and badge-target checks returned successfully. This public timestamp
+does not establish peer review, absolute priority, an immutable versioned
+release, or a DOI.

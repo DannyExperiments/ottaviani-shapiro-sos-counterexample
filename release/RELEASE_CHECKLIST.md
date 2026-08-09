@@ -19,8 +19,10 @@
       no-license status finalized
 - [x] DOI metadata pattern approved for a versioned preprint deposit after the
       immutable GitHub release exists
-- [ ] Human changes repository visibility to public
-- [ ] Public CI green and badges anonymous-reader checked
+- [x] Repository visibility is public and anonymously confirmed
+- [x] Public CI green and badges anonymous-reader checked
+- [x] Exact renamed `v1.0.0` local release-staging assets and checksum ledger
+      assembled and verified
 - [ ] Default branch protected against force push and deletion
 - [ ] Immutable `v1.0.0` release created and assets re-hashed
 - [ ] DOI collision scan repeated and DOI deposit verified

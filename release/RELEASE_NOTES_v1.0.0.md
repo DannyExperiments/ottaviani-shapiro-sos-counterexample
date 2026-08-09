@@ -17,3 +17,8 @@ Release assets are the frozen PDF, designated TeX, bibliography, citation
 metadata, and deterministic sanitized evidence bundle. Their exact hashes are
 recorded in `release/RELEASE_ASSET_SHA256SUMS.txt`; the root checksum ledger in
 the repository remains the complete repository inventory.
+
+The repository is public, and all three public-main workflows passed at commit
+`78a6a49461df990abf01a8d5089fcd074002fd36`; their badges were anonymously
+tested. These remain staged Version 1.0.0 notes until an immutable `v1.0.0` tag
+and GitHub Release are created. No DOI has been deposited.

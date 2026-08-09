@@ -26,5 +26,5 @@ The historical local cached-only attempt failed before manuscript parsing
 because `tectonic-format-latex.tex` was absent from the cache. That environment
 failure does not invalidate the integrated artifact. The pinned, read-only
 GitHub Actions workflow rebuilt the exact designated source successfully on
-the release-hardening PR. No PDF badge is authorized before the workflow also
-passes on the public default branch.
+the release-hardening PR and then passed on public `main`; artifact parity
+passed. The visible PDF badge and target were anonymously tested.

@@ -39,17 +39,24 @@ maximum requested by Problem 3.
   Source QA, scope comparison, PDF metadata checks, text privacy extraction,
   embedded-font checks, and page-by-page visual preflight pass. The exact PDF
   was rebuilt successfully on the release-hardening PR at commit
-  `7c2eb4031131923f98fe4779f17a6d6578fea1ea`; a public default-branch run
-  remains pending, so badges stay hidden.
+  `7c2eb4031131923f98fe4779f17a6d6578fea1ea`. The public default-branch PDF
+  workflow then passed at main commit
+  `78a6a49461df990abf01a8d5089fcd074002fd36` in run `31296200849`, job
+  `93201578150`; artifact `9033026233` has API-recorded digest
+  `sha256:a796fa661318c52403d61e62450f8228123dd622e5c0c2c2ab62248bfc0a68ac`,
+  and artifact parity passed. All three workflow badges and targets were
+  anonymously tested and report passing.
 - **Peer review:** no human specialist report has been obtained.
-- **Publication:** no journal acceptance, public release, or DOI is asserted.
+- **Publication:** the repository is public, but no immutable versioned GitHub
+  release, journal acceptance, or DOI is asserted.
 
 ## Release state
 
-`PUBLIC_CANDIDATE_PASS_VISIBILITY_PENDING`, `MANUSCRIPT_PASS`, and
+`PUBLIC_MAIN_CI_PASS_RELEASE_PENDING`, `MANUSCRIPT_PASS`, and
 `PRIORITY_AUDIT_PASS_QUALIFIED`.
 
 Authorship (`DannyExperiments`), the AI disclosure, and the all-rights-reserved
-no-license status are finalized for this release. Public visibility, public
-default-branch CI, badge activation, an immutable `v1.0.0` release, DOI
-publication, and external notices remain separate post-visibility gates.
+no-license status are finalized for this release. Public visibility,
+public-default-branch CI, and badge activation are complete. Default-branch
+protection, an immutable `v1.0.0` release, DOI publication, and external
+notices remain separate gates.

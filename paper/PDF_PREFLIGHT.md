@@ -23,6 +23,12 @@ run `31295131872`, PR head
 SHA-256 `03bf4d9e1c4b62027e54dad850c9ffbb28c28ded7aff440385bffa2462e90ddd`.
 The workflow source blob matches the designated local TeX source exactly.
 
+The same PDF workflow passed on public `main` at commit
+`78a6a49461df990abf01a8d5089fcd074002fd36` in run `31296200849`, job
+`93201578150`. Artifact `9033026233` has API-recorded digest
+`sha256:a796fa661318c52403d61e62450f8228123dd622e5c0c2c2ab62248bfc0a68ac`;
+source/artifact parity passed.
+
 ## Scope comparison
 
 The extracted PDF contains the exact headline witness `1152>1024=2^10`, the
@@ -66,6 +72,7 @@ absent in this rebuilt artifact.
 PDF_VISUAL_PREFLIGHT: PASS
 ```
 
-This preflight authorizes the frozen local artifact, not a public workflow
-badge. The badge remains hidden until the workflow passes on the public
-default branch.
+This preflight authorizes the frozen local artifact. The public-default-branch
+workflow and artifact-parity gate also passed, so the PDF badge is visible; its
+image and target were anonymously tested and report passing. No Lean or DOI
+badge is authorized.

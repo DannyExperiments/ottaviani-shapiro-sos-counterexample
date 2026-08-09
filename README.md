@@ -1,17 +1,13 @@
 # A counterexample to the Ottaviani--Shapiro isolated-zero conjecture
 
-<!--
-Activate these badges only after the repository is public and all three named
-workflows pass on its default branch:
-
 [![Verify public evidence](https://github.com/DannyExperiments/ottaviani-shapiro-sos-counterexample/actions/workflows/verify.yml/badge.svg)](https://github.com/DannyExperiments/ottaviani-shapiro-sos-counterexample/actions/workflows/verify.yml)
 [![Verifier replay](https://github.com/DannyExperiments/ottaviani-shapiro-sos-counterexample/actions/workflows/replay.yml/badge.svg)](https://github.com/DannyExperiments/ottaviani-shapiro-sos-counterexample/actions/workflows/replay.yml)
 [![PDF build](https://github.com/DannyExperiments/ottaviani-shapiro-sos-counterexample/actions/workflows/pdf.yml/badge.svg)](https://github.com/DannyExperiments/ottaviani-shapiro-sos-counterexample/actions/workflows/pdf.yml)
 
 No Lean badge is authorized: no scope-matched theorem is kernel checked.
-The PDF has passed private page-by-page visual preflight, but its badge remains
-hidden until the workflow passes on the public default branch.
--->
+All three workflow badges and targets were anonymously tested after successful
+public-`main` runs at commit
+`78a6a49461df990abf01a8d5089fcd074002fd36`.
 
 This repository gives a negative answer to the universal equality conjectured
 by Ottaviani and Shapiro for isolated real zeros of nonnegative sums of
@@ -94,9 +90,10 @@ extremizers.
 [Claim/evidence matrix](CLAIMS_EVIDENCE_MATRIX.md) ·
 [Deterministic evidence bundle](release/EVIDENCE_BUNDLE.zip)
 
-The paper is directly readable above. Workflow badges remain hidden until all
-three workflows pass on the public default branch. A release link and DOI badge
-will be added only after the immutable release and DOI deposits exist.
+The paper is directly readable above. All three workflows pass on the public
+default branch, and their badge image and target URLs are anonymously
+accessible. A release link and DOI badge will be added only after the immutable
+release and DOI deposits exist.
 
 ## Verification status
 

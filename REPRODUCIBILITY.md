@@ -40,5 +40,6 @@ check, and page-by-page visual preflight pass; see `paper/PDF_PREFLIGHT.md`.
 The historical cached-only Tectonic attempt is recorded in
 `paper/BUILD_LOG.txt`; it stopped before TeX parsing because the local resource
 cache was incomplete. `paper/BUILD.md` and the pinned, read-only
-`.github/workflows/pdf.yml` define the clean public rebuild gate. Do not
-display a PDF-build badge before a passing public default-branch run.
+`.github/workflows/pdf.yml` define the clean public rebuild gate. That workflow
+and the two exact-evidence workflows now pass on public `main`; their visible
+badges and targets were anonymously tested.
