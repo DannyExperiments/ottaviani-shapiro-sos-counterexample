@@ -47,17 +47,21 @@ maximum requested by Problem 3.
   and artifact parity passed. All three workflow badges and targets were
   anonymously tested and report passing.
 - **Peer review:** no human specialist report has been obtained.
-- **Publication:** the repository is public, but no immutable versioned GitHub
-  release, journal acceptance, or DOI is asserted.
+- **Publication:** immutable GitHub Version 1.0.0 was published from commit
+  `b778a50ee4d9ec0ad217dcf7ab23a9ce1b020eba` on 2026-08-10. The archived
+  version DOI is `10.5281/zenodo.21875290`; the concept DOI is
+  `10.5281/zenodo.21875289`. No journal acceptance is asserted.
 
 ## Release state
 
-`PUBLIC_MAIN_CI_PASS_RELEASE_PENDING`, `MANUSCRIPT_PASS`, and
+`DOI_DEPOSITED`, `PUBLIC_TIMESTAMPED`, `MANUSCRIPT_PASS`, and
 `PRIORITY_AUDIT_PASS_QUALIFIED`.
 
 Authorship (`DannyExperiments`), the AI disclosure, and the all-rights-reserved
 no-license status are finalized for this release. Public visibility,
 public-default-branch CI, badge activation, default-branch protection, and the
 repository release-immutability setting are complete. The protection rule and
-release setting were live-verified on 2026-08-10. An immutable `v1.0.0`
-release, DOI publication, and external notices remain separate gates.
+release setting were live-verified on 2026-08-10. The immutable
+[`v1.0.0` release](https://github.com/DannyExperiments/ottaviani-shapiro-sos-counterexample/releases/tag/v1.0.0)
+and DOI deposit are complete. External notice remains a separate, uncompleted
+gate.

@@ -20,5 +20,8 @@ the repository remains the complete repository inventory.
 
 The repository is public, and all three public-main workflows passed at commit
 `78a6a49461df990abf01a8d5089fcd074002fd36`; their badges were anonymously
-tested. These remain staged Version 1.0.0 notes until an immutable `v1.0.0` tag
-and GitHub Release are created. No DOI has been deposited.
+tested. Immutable Version 1.0.0 was subsequently published from commit
+`b778a50ee4d9ec0ad217dcf7ab23a9ce1b020eba` on 2026-08-10. Its archived
+version DOI is `10.5281/zenodo.21875290`, and its concept DOI is
+`10.5281/zenodo.21875289`. This current-main metadata update does not alter the
+immutable tag or any release asset.

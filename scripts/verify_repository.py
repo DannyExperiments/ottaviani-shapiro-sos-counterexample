@@ -102,6 +102,7 @@ def verify_workflows() -> None:
         "[![Verify public evidence](https://github.com/DannyExperiments/ottaviani-shapiro-sos-counterexample/actions/workflows/verify.yml/badge.svg)](https://github.com/DannyExperiments/ottaviani-shapiro-sos-counterexample/actions/workflows/verify.yml)",
         "[![Verifier replay](https://github.com/DannyExperiments/ottaviani-shapiro-sos-counterexample/actions/workflows/replay.yml/badge.svg)](https://github.com/DannyExperiments/ottaviani-shapiro-sos-counterexample/actions/workflows/replay.yml)",
         "[![PDF build](https://github.com/DannyExperiments/ottaviani-shapiro-sos-counterexample/actions/workflows/pdf.yml/badge.svg)](https://github.com/DannyExperiments/ottaviani-shapiro-sos-counterexample/actions/workflows/pdf.yml)",
+        "[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21875289.svg)](https://doi.org/10.5281/zenodo.21875289)",
     ])
     if not readme.startswith(
         "# A counterexample to the Ottaviani--Shapiro isolated-zero conjecture\n\n"
@@ -146,7 +147,9 @@ def verify_scope() -> None:
         "apparently new after documented search through 2026-08-09, moderate confidence",
         "generic/product-grid/SOS ingredients are prior art",
         "absolute priority unclaimed",
-        "PUBLIC_MAIN_CI_PASS_RELEASE_PENDING",
+        "DOI_DEPOSITED",
+        "10.5281/zenodo.21875290",
+        "10.5281/zenodo.21875289",
     ]:
         if marker.lower() not in joined.lower():
             fail(f"scope marker missing: {marker}")
@@ -227,28 +230,29 @@ def verify_frozen_artifacts() -> None:
 
 def verify_release_staging() -> None:
     staging = ROOT / "release/staging/v1.0.0"
-    sources = {
-        "CITATION.cff": ROOT / "CITATION.cff",
+    expected = {
+        "CITATION.cff":
+            "1c72c7e53ed50dea35bac161cb2b1da93e3f9e299dd434137ee9761217c996e8",
+        "SHA256SUMS.txt":
+            "8903093b1f377e597b13fb7f26acce6f078459a1fe1762e6a3ef3e974bb7cc43",
         "ottaviani-shapiro-sos-counterexample-public-evidence-v1.0.0.zip":
-            ROOT / "release/EVIDENCE_BUNDLE.zip",
+            "e0ee88d014feab7082646992db191ed2cfa79189972181800c00b48fb572f128",
         "ottaviani-shapiro-sos-counterexample-v1.0.0.pdf":
-            ROOT / "paper/manuscript.pdf",
+            "32dd500a3a58a944387cb2cd73dcd0aa446d40a993733bbe3e9ddef8e19cb110",
         "ottaviani-shapiro-sos-counterexample-v1.0.0.tex":
-            ROOT / "paper/manuscript.tex",
-        "references.bib": ROOT / "paper/references.bib",
+            "c588ae8dee762a50f32d2e87472194cab010f52753f4ded5a1cf8ff40e1b696a",
+        "references.bib":
+            "0fbbd3e6153f95873f488123035ce019c1a265d31e9ffd6613f784f7c218f5ab",
     }
-    actual_names = {
-        path.name for path in staging.iterdir()
-        if path.is_file() and path.name != "SHA256SUMS.txt"
-    }
-    if actual_names != set(sources):
+    actual_names = {path.name for path in staging.iterdir() if path.is_file()}
+    if actual_names != set(expected):
         fail(
             "release staging inventory mismatch; "
-            f"expected={sorted(sources)}, actual={sorted(actual_names)}"
+            f"expected={sorted(expected)}, actual={sorted(actual_names)}"
         )
-    for name, source in sources.items():
-        if sha256(staging / name) != sha256(source):
-            fail(f"release staging asset mismatch: {name}")
+    for name, digest in expected.items():
+        if sha256(staging / name) != digest:
+            fail(f"frozen release staging hash mismatch: {name}")
     if (
         (staging / "SHA256SUMS.txt").read_text(encoding="utf-8")
         != (ROOT / "release/RELEASE_ASSET_SHA256SUMS.txt").read_text(encoding="utf-8")
@@ -287,6 +291,12 @@ def verify_public_state_language() -> None:
         "workflow badges remain hidden",
         "public default-branch rebuild pending",
         "post-visibility gates",
+        "No immutable release exists yet.",
+        "release link and DOI badge will be added only after",
+        "no immutable versioned GitHub release",
+        "An immutable `v1.0.0` release, DOI publication",
+        "The immutable tag/release, DOI publication",
+        "No DOI has been deposited.",
     ]
     for relative in current_surfaces:
         lowered = (ROOT / relative).read_text(encoding="utf-8").lower()
@@ -294,50 +304,55 @@ def verify_public_state_language() -> None:
             if fragment.lower() in lowered:
                 fail(f"stale public-state language in {relative}: {fragment}")
 
-    required_pending = {
+    required_completed = {
         "README.md": [
-            "A release link and DOI badge will be added only after the immutable",
-            "release and DOI deposits exist.",
+            "10.5281/zenodo.21875290",
+            "10.5281/zenodo.21875289",
+            "/releases/tag/v1.0.0",
         ],
         "STATUS.md": [
-            "no immutable versioned GitHub",
-            "release setting were live-verified on 2026-08-10",
-            "An immutable `v1.0.0` release, DOI publication",
+            "DOI_DEPOSITED",
+            "10.5281/zenodo.21875290",
+            "10.5281/zenodo.21875289",
+            "b778a50ee4d9ec0ad217dcf7ab23a9ce1b020eba",
         ],
         "release/README.md": [
-            "No immutable release exists yet.",
-            "Default-branch protection and repository release immutability were",
-            "The immutable tag/release, DOI publication",
+            "Immutable GitHub Version 1.0.0 was published on 2026-08-10",
+            "10.5281/zenodo.21875290",
+            "10.5281/zenodo.21875289",
+            "must not be regenerated from later current-main metadata",
         ],
         "release/RELEASE_NOTES_v1.0.0.md": [
-            "remain staged Version 1.0.0 notes until an immutable `v1.0.0` tag",
-            "No DOI has been deposited.",
+            "Immutable Version 1.0.0 was subsequently published",
+            "10.5281/zenodo.21875290",
+            "does not alter the immutable tag or any release asset",
         ],
         "release/RELEASE_CHECKLIST.md": [
             "- [x] Default branch protected against force push and deletion",
             "- [x] Repository release immutability enabled for future releases",
-            "- [ ] Immutable `v1.0.0` release created and assets re-hashed",
-            "- [ ] DOI collision scan repeated and DOI deposit verified",
+            "- [x] Immutable `v1.0.0` release created and assets anonymously re-hashed",
+            "- [x] DOI collision scan repeated and version/concept DOI deposit verified",
+            "- [ ] External problem-site notice approved and posted",
         ],
     }
-    for relative, markers in required_pending.items():
+    for relative, markers in required_completed.items():
         text = (ROOT / relative).read_text(encoding="utf-8")
         normalized_text = " ".join(text.split())
         for marker in markers:
             if " ".join(marker.split()) not in normalized_text:
-                fail(f"release/DOI pending boundary missing in {relative}: {marker}")
+                fail(f"post-DOI state marker missing in {relative}: {marker}")
 
     citation = (ROOT / "CITATION.cff").read_text(encoding="utf-8")
-    # CFF is YAML, so a DOI may appear below a nested mapping such as
-    # ``preferred-citation``.  Match the key at every indentation depth; the
-    # pre-deposit repository must not claim any DOI until the verified DOI
-    # metadata update deliberately changes this release-phase guard.
-    if re.search(r"(?mi)^[ \t]*doi[ \t]*:", citation):
-        fail("CITATION.cff must not claim a DOI before a verified DOI deposit")
-    for relative in current_surfaces:
-        text = (ROOT / relative).read_text(encoding="utf-8")
-        if "/releases/tag/v1.0.0" in text:
-            fail(f"immutable release URL asserted before release creation: {relative}")
+    if citation.count('doi: "10.5281/zenodo.21875290"') != 2:
+        fail("CITATION.cff must give the version DOI at root and preferred citation")
+    for marker in [
+        "date-released: 2026-08-10",
+        'url: "https://doi.org/10.5281/zenodo.21875290"',
+        "preferred-citation:",
+        "type: software",
+    ]:
+        if marker not in citation:
+            fail(f"post-DOI CITATION.cff marker missing: {marker}")
 
 
 def verify_privacy() -> None:

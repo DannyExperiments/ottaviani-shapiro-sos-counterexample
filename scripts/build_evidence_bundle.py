@@ -16,6 +16,12 @@ SIDECAR = ROOT / "release/EVIDENCE_BUNDLE.sha256"
 ASSET_LEDGER = ROOT / "release/RELEASE_ASSET_SHA256SUMS.txt"
 PREFIX = "POLY-2200006_PUBLIC_EVIDENCE_V1/"
 FIXED_TIME = (1980, 1, 1, 0, 0, 0)
+FROZEN_BUNDLE_SHA256 = (
+    "e0ee88d014feab7082646992db191ed2cfa79189972181800c00b48fb572f128"
+)
+FROZEN_ASSET_LEDGER_SHA256 = (
+    "8903093b1f377e597b13fb7f26acce6f078459a1fe1762e6a3ef3e974bb7cc43"
+)
 
 ALLOWLIST = (
     "README.md",
@@ -154,22 +160,27 @@ def main() -> None:
     parser.add_argument("--check", action="store_true")
     args = parser.parse_args()
 
+    if args.check:
+        # Version 1.0.0 is immutable. Current-main DOI metadata intentionally
+        # differs from the CFF and status files inside the released evidence
+        # bundle, so post-release checks pin the published bytes instead of
+        # silently rebuilding the archived object.
+        if not OUTPUT.is_file() or sha256(OUTPUT.read_bytes()) != FROZEN_BUNDLE_SHA256:
+            raise SystemExit("FROZEN_EVIDENCE_BUNDLE_HASH_MISMATCH")
+        frozen_sidecar = f"{FROZEN_BUNDLE_SHA256}  EVIDENCE_BUNDLE.zip\n"
+        if not SIDECAR.is_file() or SIDECAR.read_text(encoding="utf-8") != frozen_sidecar:
+            raise SystemExit("FROZEN_EVIDENCE_BUNDLE_SIDECAR_MISMATCH")
+        if (
+            not ASSET_LEDGER.is_file()
+            or sha256(ASSET_LEDGER.read_bytes()) != FROZEN_ASSET_LEDGER_SHA256
+        ):
+            raise SystemExit("FROZEN_RELEASE_ASSET_LEDGER_HASH_MISMATCH")
+        print("IMMUTABLE_RELEASE_EVIDENCE_BUNDLE: PASS")
+        return
+
     bundle = build_bytes()
     sidecar = sidecar_text(bundle)
     asset_ledger = asset_ledger_text(bundle)
-    if args.check:
-        if not OUTPUT.is_file() or OUTPUT.read_bytes() != bundle:
-            raise SystemExit("EVIDENCE_BUNDLE_OUT_OF_DATE")
-        if not SIDECAR.is_file() or SIDECAR.read_text(encoding="utf-8") != sidecar:
-            raise SystemExit("EVIDENCE_BUNDLE_SIDECAR_OUT_OF_DATE")
-        if (
-            not ASSET_LEDGER.is_file()
-            or ASSET_LEDGER.read_text(encoding="utf-8") != asset_ledger
-        ):
-            raise SystemExit("RELEASE_ASSET_LEDGER_OUT_OF_DATE")
-        print("DETERMINISTIC_EVIDENCE_BUNDLE: PASS")
-        return
-
     OUTPUT.write_bytes(bundle)
     SIDECAR.write_text(sidecar, encoding="utf-8")
     ASSET_LEDGER.write_text(asset_ledger, encoding="utf-8")
