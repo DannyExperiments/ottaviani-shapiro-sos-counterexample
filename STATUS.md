@@ -57,6 +57,7 @@ maximum requested by Problem 3.
 
 Authorship (`DannyExperiments`), the AI disclosure, and the all-rights-reserved
 no-license status are finalized for this release. Public visibility,
-public-default-branch CI, and badge activation are complete. Default-branch
-protection, an immutable `v1.0.0` release, DOI publication, and external
-notices remain separate gates.
+public-default-branch CI, badge activation, default-branch protection, and the
+repository release-immutability setting are complete. The protection rule and
+release setting were live-verified on 2026-08-10. An immutable `v1.0.0`
+release, DOI publication, and external notices remain separate gates.

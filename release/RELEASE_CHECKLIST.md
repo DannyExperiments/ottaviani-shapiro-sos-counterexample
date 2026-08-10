@@ -23,7 +23,11 @@
 - [x] Public CI green and badges anonymous-reader checked
 - [x] Exact renamed `v1.0.0` local release-staging assets and checksum ledger
       assembled and verified
-- [ ] Default branch protected against force push and deletion
+- [x] Default branch protected against force push and deletion; pull request,
+      exact status-check, current-base, conversation-resolution, linear-history,
+      no-bypass, no-force-push, and no-deletion controls live-verified
+- [x] Repository release immutability enabled for future releases and
+      live-verified before publishing `v1.0.0`
 - [ ] Immutable `v1.0.0` release created and assets re-hashed
 - [ ] DOI collision scan repeated and DOI deposit verified
 - [ ] External problem-site notice approved and posted

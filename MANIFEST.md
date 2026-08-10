@@ -6,6 +6,7 @@ regular file except itself.
 
 - `.gitattributes`
 - `.github/workflows/pdf.yml`
+- `.github/workflows/publish-v1.0.0.yml`
 - `.github/workflows/replay.yml`
 - `.github/workflows/verify.yml`
 - `.gitignore`
