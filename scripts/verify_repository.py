@@ -30,6 +30,7 @@ def verify_required_files() -> None:
         ".gitattributes",
         ".gitignore",
         ".github/workflows/pdf.yml",
+        ".github/workflows/publish-v1.0.0.yml",
         ".github/workflows/replay.yml",
         ".github/workflows/verify.yml",
         "README.md",
@@ -109,6 +110,25 @@ def verify_workflows() -> None:
         fail("three public-main workflow badges must be visible below the title")
     if "actions/workflows/lean" in readme.lower():
         fail("Lean badge is forbidden without a scope-matched kernel theorem")
+
+    publish = (
+        ROOT / ".github/workflows/publish-v1.0.0.yml"
+    ).read_text(encoding="utf-8")
+    for marker in [
+        "workflow_dispatch:",
+        "Require exact public main tip",
+        "test \"$GITHUB_SHA\" = \"$default_tip\"",
+        "bash scripts/verify.sh",
+        "sha256sum -c SHA256SUMS.txt",
+        "--target \"$GITHUB_SHA\"",
+        "Verify published release and re-downloaded assets",
+        "--jq .immutable",
+        "gh release download v1.0.0 --dir redownload",
+    ]:
+        if marker not in publish:
+            fail(f"release workflow hardening marker missing: {marker}")
+    if "push:" in publish:
+        fail("release publication must be manually dispatched after final-main CI")
 
 
 def verify_scope() -> None:
@@ -281,18 +301,21 @@ def verify_public_state_language() -> None:
         ],
         "STATUS.md": [
             "no immutable versioned GitHub",
-            "Default-branch protection, an immutable `v1.0.0` release, DOI publication",
+            "release setting were live-verified on 2026-08-10",
+            "An immutable `v1.0.0` release, DOI publication",
         ],
         "release/README.md": [
             "No immutable release exists yet.",
-            "Default-branch protection, the immutable tag/release, DOI publication",
+            "Default-branch protection and repository release immutability were",
+            "The immutable tag/release, DOI publication",
         ],
         "release/RELEASE_NOTES_v1.0.0.md": [
             "remain staged Version 1.0.0 notes until an immutable `v1.0.0` tag",
             "No DOI has been deposited.",
         ],
         "release/RELEASE_CHECKLIST.md": [
-            "- [ ] Default branch protected against force push and deletion",
+            "- [x] Default branch protected against force push and deletion",
+            "- [x] Repository release immutability enabled for future releases",
             "- [ ] Immutable `v1.0.0` release created and assets re-hashed",
             "- [ ] DOI collision scan repeated and DOI deposit verified",
         ],

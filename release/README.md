@@ -22,6 +22,7 @@ replay README and is checked by the repository verification workflow.
 
 The repository is public. All three default-branch workflows pass, and the
 repository, Actions page, badge images, and badge targets were anonymously
-tested. Default-branch protection, the immutable tag/release, DOI publication,
-and external notice remain pending. The staged assets do not themselves assert
-that those later gates have passed.
+tested. Default-branch protection and repository release immutability were
+live-verified on 2026-08-10. The immutable tag/release, DOI publication, and
+external notice remain pending. The staged assets do not themselves assert that
+those later gates have passed.

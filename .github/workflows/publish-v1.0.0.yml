@@ -1,13 +1,14 @@
-name: Publish immutable v1.0.0
+name: Publish v1.0.0
 
 on:
-  push:
-    branches: [main]
-    paths:
-      - .github/workflows/publish-v1.0.0.yml
+  workflow_dispatch:
 
 permissions:
   contents: write
+
+concurrency:
+  group: publish-v1.0.0
+  cancel-in-progress: false
 
 jobs:
   release:
@@ -18,10 +19,21 @@ jobs:
       - name: Check out exact release commit
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
 
+      - name: Require exact public main tip
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          default_branch="$(gh api "repos/${GITHUB_REPOSITORY}" --jq .default_branch)"
+          default_tip="$(gh api "repos/${GITHUB_REPOSITORY}/git/ref/heads/${default_branch}" --jq .object.sha)"
+          test "$GITHUB_REF" = "refs/heads/${default_branch}"
+          test "$GITHUB_SHA" = "$default_tip"
+
       - name: Verify repository and deterministic evidence
         run: bash scripts/verify.sh
 
-      - name: Stage and hash-check immutable assets
+      - name: Stage and hash-check release assets
         shell: bash
         run: |
           set -euo pipefail
@@ -46,11 +58,11 @@ jobs:
 
           ## Scope and status
 
-          The release does not determine the exact extremal function. Three independent priority lanes classify the result as apparently new after a documented search through 2026-08-09, with moderate confidence; generic, product-grid, and sum-of-squares ingredients are prior art. Absolute historical priority, human peer review, and formal verification are not claimed.
+          This refutes Conjecture 4 only; it does not determine the exact extremal function. Three independent priority lanes classify the result as apparently new after a documented search through 2026-08-09, with moderate confidence; generic, product-grid, and sum-of-squares ingredients are prior art. Absolute historical priority, human peer review, and formal verification are not claimed.
 
-          The mathematical audit, exact counterexample replay, deterministic public-evidence verification, clean PDF build, and page-by-page visual preflight are complete. The immutable tag targets public \`main\` commit \`${GITHUB_SHA}\`. The release PR passed all repository, replay, and PDF-build checks at this exact tree.
+          The mathematical audit, exact counterexample replay, deterministic public-evidence verification, clean PDF build, and page-by-page visual preflight are complete. The tag targets public \`main\` commit \`${GITHUB_SHA}\`. The protected release PR passed all required repository, replay, and PDF-build checks on the same tree, and those checks passed again on public \`main\` before this workflow was manually dispatched.
 
-          ## Immutable assets
+          ## Release assets
 
           - \`ottaviani-shapiro-sos-counterexample-v1.0.0.pdf\`
           - \`ottaviani-shapiro-sos-counterexample-v1.0.0.tex\`
@@ -64,14 +76,14 @@ jobs:
           No DOI is claimed by this GitHub release. Any archival DOI deposit is a separate post-release action.
           EOF
 
-      - name: Publish immutable GitHub release
+      - name: Publish GitHub release
         env:
           GH_TOKEN: ${{ github.token }}
         shell: bash
         run: |
           set -euo pipefail
           if gh release view v1.0.0 >/dev/null 2>&1; then
-            echo "v1.0.0 already exists; refusing to overwrite an immutable release" >&2
+            echo "v1.0.0 already exists; refusing to overwrite the release" >&2
             exit 1
           fi
           if gh api "repos/${GITHUB_REPOSITORY}/git/ref/tags/v1.0.0" >/dev/null 2>&1; then
@@ -82,3 +94,15 @@ jobs:
             --target "$GITHUB_SHA" \
             --title "Version 1.0.0" \
             --notes-file /tmp/release-body.md
+
+      - name: Verify published release and re-downloaded assets
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(gh api "repos/${GITHUB_REPOSITORY}/releases/tags/v1.0.0" --jq .immutable)" = "true"
+          test "$(gh api "repos/${GITHUB_REPOSITORY}/git/ref/tags/v1.0.0" --jq .object.sha)" = "$GITHUB_SHA"
+          mkdir -p redownload
+          gh release download v1.0.0 --dir redownload
+          (cd redownload && sha256sum -c SHA256SUMS.txt)
