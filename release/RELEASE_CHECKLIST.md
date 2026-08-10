@@ -28,6 +28,6 @@
       no-bypass, no-force-push, and no-deletion controls live-verified
 - [x] Repository release immutability enabled for future releases and
       live-verified before publishing `v1.0.0`
-- [ ] Immutable `v1.0.0` release created and assets re-hashed
-- [ ] DOI collision scan repeated and DOI deposit verified
+- [x] Immutable `v1.0.0` release created and assets anonymously re-hashed
+- [x] DOI collision scan repeated and version/concept DOI deposit verified
 - [ ] External problem-site notice approved and posted

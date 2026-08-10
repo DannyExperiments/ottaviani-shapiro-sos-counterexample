@@ -3,17 +3,22 @@ message: "If you use this research release, cite it using the metadata below."
 title: "A counterexample to the Ottaviani--Shapiro isolated-zero conjecture"
 type: software
 version: 1.0.0
-date-released: 2026-08-09
+date-released: 2026-08-10
+doi: "10.5281/zenodo.21875290"
+url: "https://doi.org/10.5281/zenodo.21875290"
 repository-code: "https://github.com/DannyExperiments/ottaviani-shapiro-sos-counterexample"
 authors:
   - name: "DannyExperiments"
 preferred-citation:
-  type: article
+  type: software
   title: "A counterexample to the Ottaviani--Shapiro isolated-zero conjecture"
+  version: 1.0.0
+  date-released: 2026-08-10
+  doi: "10.5281/zenodo.21875290"
   authors:
     - name: "DannyExperiments"
   year: 2026
-  url: "https://github.com/DannyExperiments/ottaviani-shapiro-sos-counterexample"
+  url: "https://doi.org/10.5281/zenodo.21875290"
 keywords:
   - real algebraic geometry
   - sums of squares

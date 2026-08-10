@@ -3,6 +3,7 @@
 [![Verify public evidence](https://github.com/DannyExperiments/ottaviani-shapiro-sos-counterexample/actions/workflows/verify.yml/badge.svg)](https://github.com/DannyExperiments/ottaviani-shapiro-sos-counterexample/actions/workflows/verify.yml)
 [![Verifier replay](https://github.com/DannyExperiments/ottaviani-shapiro-sos-counterexample/actions/workflows/replay.yml/badge.svg)](https://github.com/DannyExperiments/ottaviani-shapiro-sos-counterexample/actions/workflows/replay.yml)
 [![PDF build](https://github.com/DannyExperiments/ottaviani-shapiro-sos-counterexample/actions/workflows/pdf.yml/badge.svg)](https://github.com/DannyExperiments/ottaviani-shapiro-sos-counterexample/actions/workflows/pdf.yml)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21875289.svg)](https://doi.org/10.5281/zenodo.21875289)
 
 No Lean badge is authorized: no scope-matched theorem is kernel checked.
 All three workflow badges and targets were anonymously tested after successful
@@ -92,8 +93,11 @@ extremizers.
 
 The paper is directly readable above. All three workflows pass on the public
 default branch, and their badge image and target URLs are anonymously
-accessible. A release link and DOI badge will be added only after the immutable
-release and DOI deposits exist.
+accessible. The archived release is available as the
+[immutable GitHub Version 1.0.0 release](https://github.com/DannyExperiments/ottaviani-shapiro-sos-counterexample/releases/tag/v1.0.0)
+and at the [version DOI](https://doi.org/10.5281/zenodo.21875290). The
+[concept DOI](https://doi.org/10.5281/zenodo.21875289) resolves to the latest
+archived version.
 
 ## Verification status
 
