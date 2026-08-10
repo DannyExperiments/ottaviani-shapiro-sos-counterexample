@@ -102,7 +102,7 @@ def verify_workflows() -> None:
         "[![Verify public evidence](https://github.com/DannyExperiments/ottaviani-shapiro-sos-counterexample/actions/workflows/verify.yml/badge.svg)](https://github.com/DannyExperiments/ottaviani-shapiro-sos-counterexample/actions/workflows/verify.yml)",
         "[![Verifier replay](https://github.com/DannyExperiments/ottaviani-shapiro-sos-counterexample/actions/workflows/replay.yml/badge.svg)](https://github.com/DannyExperiments/ottaviani-shapiro-sos-counterexample/actions/workflows/replay.yml)",
         "[![PDF build](https://github.com/DannyExperiments/ottaviani-shapiro-sos-counterexample/actions/workflows/pdf.yml/badge.svg)](https://github.com/DannyExperiments/ottaviani-shapiro-sos-counterexample/actions/workflows/pdf.yml)",
-        "[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21875289.svg)](https://doi.org/10.5281/zenodo.21875289)",
+        "[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.21875289-blue.svg)](https://doi.org/10.5281/zenodo.21875289)",
     ])
     if not readme.startswith(
         "# A counterexample to the Ottaviani--Shapiro isolated-zero conjecture\n\n"
